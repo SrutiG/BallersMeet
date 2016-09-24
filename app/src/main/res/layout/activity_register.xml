@@ -21,9 +21,10 @@
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/usernameET"
+        android:id="@+id/usernameRET"
         android:hint="Username"
         android:layout_margin="10dp"/>
+=
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
@@ -33,7 +34,7 @@
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/password"
+        android:id="@+id/passwordR"
         android:hint="Password"
         android:inputType="textPassword"
         android:layout_margin="10dp"/>
