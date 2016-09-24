@@ -7,39 +7,44 @@
     android:padding="10dp">
 
     <EditText
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:id="@+id/firstNameET"
-        android:hint="First Name"/>
+        android:hint="First Name"
+        android:layout_margin="10dp"/>
     <EditText
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:id="@+id/lastNameET"
-        android:hint="Last Name"/>
+        android:hint="Last Name"
+        android:layout_margin="10dp"/>
     <EditText
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:id="@+id/usernameET"
-        android:hint="Username"/>
+        android:hint="Username"
+        android:layout_margin="10dp"/>
     <EditText
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:id="@+id/emailET"
-        android:hint="Email"/>
+        android:hint="Email"
+        android:layout_margin="10dp"/>
     <EditText
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:id="@+id/password"
         android:hint="Password"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        android:layout_margin="10dp"/>
     <Button
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="Register"
         android:id="@+id/registerBT"
         android:onClick="handleRegisterClick"/>
     <TextView
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="Cancel"
         android:gravity="center"

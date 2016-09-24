@@ -12,24 +12,26 @@
     android:orientation="vertical">
 
     <EditText
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Username"
-        android:id="@+id/usernameET"/>
+        android:id="@+id/usernameET"
+        android:layout_margin="10dp"/>
     <EditText
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Password"
         android:inputType="textPassword"
-        android:id="@+id/passwordET"/>
+        android:id="@+id/passwordET"
+        android:layout_margin="10dp"/>
     <Button
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="Login"
         android:id="@+id/loginBT"
         android:onClick="handleLoginClick"/>
     <TextView
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="Cancel"
         android:onClick="handleCancelClick"

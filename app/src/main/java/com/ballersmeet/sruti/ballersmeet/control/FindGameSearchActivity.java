@@ -5,12 +5,11 @@ import android.os.Bundle;
 
 import com.ballersmeet.sruti.ballersmeet.R;
 
-public class HomeScreenActivity extends AppCompatActivity {
+public class FindGameSearchActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_screen);
+        setContentView(R.layout.activity_find_game_search);
     }
-
 }
