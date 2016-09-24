@@ -16,17 +16,13 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-<<<<<<< HEAD
-        <activity android:name=".control.WelcomeActivity" />
         <activity android:name=".control.HomeScreenActivity" />
         <activity android:name=".control.FindGameSearchActivity" />
         <activity
             android:name=".control.NavDrawerActivity"
             android:label="@string/title_activity_nav_drawer"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-=======
         <activity android:name=".control.HomeScreenActivity"></activity>
->>>>>>> cdea459f08db5ae3ea000866b4bc1861601e79c1
     </application>
 
 </manifest>

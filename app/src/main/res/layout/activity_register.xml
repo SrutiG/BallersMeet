@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:text="Register"
         android:id="@+id/registerBT"
-        android:onClick="handleRegisterClick"/>
+        android:onClick="handleRegisterClicked"/>
     <TextView
         android:layout_width="300dp"
         android:layout_height="wrap_content"
