@@ -1,7 +1,5 @@
 package com.ballersmeet.sruti.ballersmeet.control;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,30 +17,22 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void handleLoginClick(View view) {
-        EditText user =  (EditText) findViewById(R.id.usernameET);
+        final EditText user = (EditText) findViewById(R.id.usernameET);
         String username = user.getText().toString();
         System.out.println(username);
-        EditText pass =  (EditText) findViewById(R.id.passwordET);
-        String password = pass.getText().toString();
+        final EditText pass = (EditText) findViewById(R.id.passwordET);
+        /**String password = pass.getText().toString();
         System.out.println(password);
-        if (password == "pass" && username == "user") {
+        if (username == "user" && password == "pass") {**/
             Intent homeView = new Intent(this, HomeScreenActivity.class);
             startActivity(homeView);
-        } else {
+        /**} else {
             AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-            builder1.setMessage(username + " " + pass);
+            builder1.setMessage("Incorrect Username or Password");
             builder1.setCancelable(true);
 
             builder1.setPositiveButton(
-                    "Yes",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-                        }
-                    });
-
-            builder1.setNegativeButton(
-                    "No",
+                    "Okay",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
@@ -52,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
             AlertDialog alert11 = builder1.create();
             alert11.show();
         }
-
+        **/
     }
 
     public void handleCancelClick(View view) {

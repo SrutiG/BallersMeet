@@ -16,7 +16,7 @@ import android.view.MenuItem;
 import com.ballersmeet.sruti.ballersmeet.R;
 
 public class NavDrawerActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

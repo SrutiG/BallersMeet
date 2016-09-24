@@ -9,7 +9,7 @@ import com.ballersmeet.sruti.ballersmeet.R;
 /**
  * Created by Sruti on 9/24/16.
  */
-public class RegisterActivity extends AppCompatActivity{
+public class RegisterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
