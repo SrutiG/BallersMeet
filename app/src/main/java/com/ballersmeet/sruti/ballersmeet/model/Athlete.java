@@ -19,6 +19,10 @@ public class Athlete {
         this.password = password;
     }
 
+    public Athlete (String username, String password) {
+        this(null, null, null, username, password);
+    }
+
     public void setLevel(int level) {
         if (level >= 1 && level <= 10) {
             this.level = level;
