@@ -14,7 +14,7 @@
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/BallerzMeet"
+        android:src="@drawable/logo"
         android:layout_margin="20dp"/>
 
     <TextView
@@ -31,15 +31,15 @@
         android:layout_height="wrap_content"
         android:id="@+id/loginBT"
         android:text="Login"
-        android:layout_margin_top="10dp"
-        android:onClick="handleLoginClick"/>
+        android:onClick="handleLoginClick"
+        android:paddingTop="10dp" />
     <Button
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:id="@+id/registerBT"
         android:text="Register"
-        android:layout_margin_bottom="10dp"
-        android:onClick="handleRegisterClick"/>
+        android:onClick="handleRegisterClick"
+        android:paddingTop="10dp" />
 
 
 </LinearLayout>

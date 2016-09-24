@@ -19,7 +19,7 @@
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:id="@+id/usernameET"
+        android:id="@+id/usernameRET"
         android:hint="Username"/>
     <EditText
         android:layout_width="250dp"
@@ -29,7 +29,7 @@
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:id="@+id/password"
+        android:id="@+id/passwordR"
         android:hint="Password"
         android:inputType="textPassword"/>
     <Button
