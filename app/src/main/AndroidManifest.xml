@@ -18,10 +18,6 @@
         </activity>
         <activity android:name=".control.HomeScreenActivity" />
         <activity android:name=".control.FindGameSearchActivity" />
-        <activity
-            android:name=".control.NavDrawerActivity"
-            android:label="@string/title_activity_nav_drawer"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".control.HomeScreenActivity"></activity>
     </application>
 
