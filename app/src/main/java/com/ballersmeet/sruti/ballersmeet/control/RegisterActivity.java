@@ -44,7 +44,5 @@ public class RegisterActivity extends AppCompatActivity {
         Intent homeView = new Intent(this, HomeScreenActivity.class);
         homeView.putExtra("athlete", (Serializable) athlete);
         startActivity(homeView);
-
-
     }
 }

@@ -10,15 +10,16 @@ import com.ballersmeet.sruti.ballersmeet.model.Athlete;
 
 import java.io.Serializable;
 
-public class FindGame extends AppCompatActivity {
+public class StartGameActivity extends AppCompatActivity {
 
-    Athlete athlete;
+    private Athlete athlete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_find_game);
-        this.athlete = (Athlete) getIntent().getExtras().getSerializable("athlete");
+        setContentView(R.layout.activity_start_game);
+        athlete = (Athlete) getIntent().getExtras().getSerializable("athlete");
+
     }
 
     public void handleFindClicked(View view) {
@@ -38,7 +39,4 @@ public class FindGame extends AppCompatActivity {
         startView.putExtra("athlete", (Serializable) athlete);
         startActivity(startView);
     }
-
-
-
 }

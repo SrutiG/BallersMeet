@@ -48,7 +48,8 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="Profile"
-            android:id="@+id/profileBT" />
+            android:id="@+id/profileBT"
+            android:onClick="handleProfileClicked"/>
         <Button
             android:layout_width="120dp"
             android:layout_height="wrap_content"
@@ -59,7 +60,8 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="Start Game"
-            android:id="@+id/startGameBT" />
+            android:id="@+id/startGameBT"
+            android:onClick="handleStartClicked"/>
 
     </LinearLayout>
 

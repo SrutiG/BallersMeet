@@ -18,13 +18,29 @@ public class HomeScreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Athlete a = (Athlete) getIntent().getExtras().getSerializable("athlete");
+        athlete = (Athlete) getIntent().getExtras().getSerializable("athlete");
         setContentView(R.layout.activity_home_screen);
     }
 
     public void handleFindClicked(View view) {
         Intent findView = new Intent(this, FindGame.class);
+        findView.putExtra("athlete", (Serializable) athlete);
         startActivity(findView);
     }
+
+    public void handleProfileClicked(View view) {
+        Intent profileView = new Intent(this, ProfileActivity.class);
+        profileView.putExtra("athlete", (Serializable) athlete);
+        startActivity(profileView);
+    }
+
+    public void handleStartClicked(View view) {
+        Intent startView = new Intent(this, StartGameActivity.class);
+        startView.putExtra("athlete", (Serializable) athlete);
+        startActivity(startView);
+    }
+
+
+
 
 }

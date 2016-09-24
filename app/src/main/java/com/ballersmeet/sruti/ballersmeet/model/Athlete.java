@@ -1,9 +1,11 @@
 package com.ballersmeet.sruti.ballersmeet.model;
 
+import java.io.Serializable;
+
 /**
  * Created by Sruti on 9/24/16.
  */
-public class Athlete {
+public class Athlete implements Serializable {
     private String firstname;
     private String lastname;
     private String email;
