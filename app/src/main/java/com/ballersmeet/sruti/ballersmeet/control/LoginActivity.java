@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.ballersmeet.sruti.ballersmeet.R;
 
@@ -36,28 +37,7 @@ public class LoginActivity extends AppCompatActivity {
             Intent homeView = new Intent(this, HomeScreenActivity.class);
             startActivity(homeView);
         } else {
-            AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-            builder1.setMessage(username + " " + pass);
-            builder1.setCancelable(true);
-
-            builder1.setPositiveButton(
-                    "Yes",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-                        }
-                    });
-
-            builder1.setNegativeButton(
-                    "No",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-                        }
-                    });
-
-            AlertDialog alert11 = builder1.create();
-            alert11.show();
+            Toast.makeText(this,"Incorrect Login Credentials", Toast.LENGTH_SHORT );
         }
 
     }
