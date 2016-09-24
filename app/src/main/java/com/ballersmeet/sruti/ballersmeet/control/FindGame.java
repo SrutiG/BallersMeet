@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import com.ballersmeet.sruti.ballersmeet.R;
 
-public class FindGameSearchActivity extends AppCompatActivity {
+public class FindGame extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_find_game_search);
+        setContentView(R.layout.activity_find_game);
     }
 }
