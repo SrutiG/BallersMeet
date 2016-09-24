@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         if (password.equals("pass") && username.equals("user")) {
             Intent homeView = new Intent(this, HomeScreenActivity.class);
             Athlete athlete = new Athlete("Sruti", "Guhathakurta", "sruti@gatech.edu", username, password);
-            homeView.putExtra("athlete", (Serializable) athlete);
+            /*homeView.putExtra("athlete", (Serializable) athlete);*/
             startActivity(homeView);
         } else {
             AlertDialog.Builder builder1 = new AlertDialog.Builder(this);

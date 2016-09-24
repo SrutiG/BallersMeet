@@ -18,7 +18,7 @@ public class HomeScreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Athlete a = (Athlete) getIntent().getExtras().getSerializable("athlete");
+        /*Athlete a = (Athlete) getIntent().getExtras().getSerializable("athlete");*/
         setContentView(R.layout.activity_home_screen);
     }
 
