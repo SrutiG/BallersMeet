@@ -20,6 +20,6 @@ public class RegisterActivity extends AppCompatActivity{
     public void handleCancelClick(View view) {
     }
 
-    public void handleRegisterClick(View view) {
+    public void handleRegisterClicked(View view) {
     }
 }
