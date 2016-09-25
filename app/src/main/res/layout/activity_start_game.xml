@@ -39,11 +39,11 @@
         android:layout_marginTop="140dp">
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/scrollView2" >
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center"
                 android:paddingBottom="20dp"
@@ -59,7 +59,7 @@
                     android:name="com.google.android.gms.maps.MapFragment"
                     android:id="@+id/map"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="300dp"/>
                 <TextView
                     android:paddingLeft="10dp"
                     android:layout_width="wrap_content"
@@ -68,7 +68,7 @@
                     android:layout_marginBottom="20dp"/>
                 <CalendarView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:id="@+id/calendarView" />
                 <TextView
                     android:paddingLeft="10dp"

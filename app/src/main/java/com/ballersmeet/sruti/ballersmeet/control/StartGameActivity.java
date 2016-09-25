@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.ballersmeet.sruti.ballersmeet.R;
 import com.ballersmeet.sruti.ballersmeet.model.Athlete;
@@ -12,6 +13,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.ballersmeet.sruti.ballersmeet.model.Game;
 
@@ -27,8 +29,7 @@ public class StartGameActivity extends FragmentActivity implements OnMapReadyCal
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_game);
         athlete = (Athlete) getIntent().getExtras().getSerializable("athlete");
-        MapFragment mapFragment = (MapFragment) getFragmentManager()
-                .findFragmentById(R.id.map);
+        MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
     }
@@ -53,8 +54,19 @@ public class StartGameActivity extends FragmentActivity implements OnMapReadyCal
 
     @Override
     public void onMapReady(GoogleMap map) {
-        map.addMarker(new MarkerOptions()
-                .position(new LatLng(0, 0))
-                .title("Marker"));
+        map.addMarker(new MarkerOptions().position(new LatLng(33.7756, 84.3963)).title("Marker"));
+        map.setOnInfoWindowClickListener(getInfoWindowClickListener());
+    }
+
+    public GoogleMap.OnInfoWindowClickListener getInfoWindowClickListener()
+    {
+        return new GoogleMap.OnInfoWindowClickListener()
+        {
+            @Override
+            public void onInfoWindowClick(Marker marker)
+            {
+                Toast.makeText(getApplicationContext(), "Clicked a window with title..." + marker.getTitle(), Toast.LENGTH_SHORT).show();
+            }
+        };
     }
 }
