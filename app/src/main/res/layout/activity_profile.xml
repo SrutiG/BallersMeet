@@ -52,6 +52,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:text="User: "
+                android:textStyle="bold"
                 android:gravity="center|right"
                 android:textSize="20sp" />
             <TextView
