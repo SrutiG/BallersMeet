@@ -116,7 +116,8 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="25dp"
                     android:text="Find Game"
-                    android:id="@+id/search" />
+                    android:id="@+id/search"
+                    android:onClick="handleSearch"/>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

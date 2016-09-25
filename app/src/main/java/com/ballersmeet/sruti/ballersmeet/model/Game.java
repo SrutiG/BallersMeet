@@ -1,5 +1,7 @@
 package com.ballersmeet.sruti.ballersmeet.model;
 
+import android.os.Parcel;
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;

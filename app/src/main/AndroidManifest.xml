@@ -44,7 +44,8 @@
             android:name=".control.MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".control.ViewGameActivity" />
-        <activity android:name=".control.JoinGameActivity"></activity>
+        <activity android:name=".control.JoinGameActivity" />
+        <activity android:name=".control.SearchGamesActivity"></activity>
     </application>
 
 </manifest>
