@@ -17,4 +17,8 @@ public class Location {
         this.city = city;
         this.state = state;
     }
+
+    public String toString() {
+        return name;
+    }
 }
