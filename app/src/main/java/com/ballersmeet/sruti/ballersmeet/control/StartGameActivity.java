@@ -13,12 +13,14 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.ballersmeet.sruti.ballersmeet.model.Game;
 
 import java.io.Serializable;
 
 public class StartGameActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private Athlete athlete;
+    private Game game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

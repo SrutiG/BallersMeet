@@ -40,4 +40,12 @@ public class Game {
         date.setYear(year);
     }
 
+    public Location getLocation() {
+        return location;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
 }

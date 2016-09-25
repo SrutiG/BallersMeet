@@ -25,17 +25,17 @@
         android:layout_marginBottom="10dp"
         android:textStyle="bold"/>
 
-    <GridView
-        android:id="@+id/sc_spots"
+    <ListView
+        android:id="@+id/gamesLV"
         android:layout_width="wrap_content"
         android:layout_height="300dp"
         android:fillViewport="true"
-        android:numColumns="3"
         android:scrollbars="vertical"
         android:smoothScrollbar="true"
-        android:clickable="false">
+        android:layout_gravity="center"
+        android:layout_margin="10dp">
 
-    </GridView>
+    </ListView>
 
     <LinearLayout
         android:layout_width="match_parent"
