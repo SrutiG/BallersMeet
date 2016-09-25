@@ -43,6 +43,7 @@
         <activity
             android:name=".control.MapsActivity"
             android:label="@string/title_activity_maps"></activity>
+        <activity android:name=".control.ViewGameActivity"></activity>
     </application>
 
 </manifest>
