@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android"
-package="com.ballersmeet.sruti.ballersmeet">
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ballersmeet.sruti.ballersmeet">
 
     <application
         android:allowBackup="true"
@@ -18,9 +19,8 @@ package="com.ballersmeet.sruti.ballersmeet">
         <activity android:name=".control.HomeScreenActivity" />
         <activity android:name=".control.FindGame" />
         <activity android:name=".control.ProfileActivity" />
-        <activity android:name=".control.StartGameActivity"></activity>
+        <activity android:name=".control.StartGameActivity" />
+        <activity android:name=".control.ViewGameActivity"></activity>
     </application>
 
 </manifest>
-
-
