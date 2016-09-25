@@ -152,6 +152,7 @@ public class StartGameActivity extends FragmentActivity implements OnMapReadyCal
         Game newGame = new Game(6, date, gameloc);
         Intent added = new Intent(this, GameAdded.class);
         added.putExtra("game", (Serializable) newGame);
+        added.putExtra("athlete", (Serializable) athlete);
         startActivity(added);
     }
 }
