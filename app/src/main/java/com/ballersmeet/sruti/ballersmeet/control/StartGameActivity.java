@@ -147,11 +147,7 @@ public class StartGameActivity extends FragmentActivity implements OnMapReadyCal
         return false;
     }
 
-<<<<<<< HEAD
     public void handleStartGameClick(View view) {
-=======
-    public void handleStartClicked() {
->>>>>>> ad5308ecfec1907e50aff4197876329de2f6f28f
         Location gameloc = new Location(loc.getTitle());
         Game newGame = new Game(6, date, gameloc);
         Intent added = new Intent(this, GameAdded.class);
