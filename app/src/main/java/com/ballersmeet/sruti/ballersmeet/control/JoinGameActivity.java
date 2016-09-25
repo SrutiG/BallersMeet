@@ -13,12 +13,12 @@ import com.ballersmeet.sruti.ballersmeet.model.Game;
 
 import java.io.Serializable;
 
-public class ViewGameActivity extends AppCompatActivity {
+public class JoinGameActivity extends AppCompatActivity {
 
     private Game game;
     private Athlete athlete;
     private TextView location, capacity, spots, date, time;
-    private Button cancel;
+    private Button join, cancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,14 @@ public class ViewGameActivity extends AppCompatActivity {
         spots.setText("" + game.getSize());
         date.setText(game.getDay());
         time.setText(game.getTime());
+    }
+
+    public void handleJoinClicked(View view) {
+        athlete.addGameQueue(game);
+        Intent viewHome = new Intent(this, HomeScreenActivity.class);
+        viewHome.putExtra("athlete", (Serializable)athlete);
+        startActivity(viewHome);
+
     }
 
     public void handleCancelClick(View view) {
@@ -61,4 +69,5 @@ public class ViewGameActivity extends AppCompatActivity {
         startView.putExtra("athlete", (Serializable) athlete);
         startActivity(startView);
     }
+
 }

@@ -22,7 +22,7 @@ import android.widget.TextView;
 
 import java.io.Serializable;
 
-public class HomeScreenActivity extends AppCompatActivity {
+public class HomeScreenActivity extends AppCompatActivity implements OnItemClickListener {
 
     Athlete athlete;
     ArrayList<Game> games;
@@ -57,6 +57,7 @@ public class HomeScreenActivity extends AppCompatActivity {
             ListView games = (ListView) findViewById(R.id.gamesLV);
             games.setClickable(true);
             games.setAdapter(gameAdapter);
+            games.setOnItemClickListener(this);
 
         } catch (ParseException e) {
             e.printStackTrace();
@@ -82,11 +83,11 @@ public class HomeScreenActivity extends AppCompatActivity {
     }
 
 
-    public void handleNumClicked(View v) {
-        TextView posTV = (TextView) findViewById(R.id.numTV);
-        String pos = posTV.getText().toString();
-        Integer position = Integer.valueOf(pos);
-        Game passGame = games.get(position-1);
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Log.d("position", new Integer(i).toString() );
+        Game passGame = games.get(i);
         Intent viewGame = new Intent(this, ViewGameActivity.class);
         viewGame.putExtra("athlete", (Serializable) athlete);
         viewGame.putExtra("game", (Serializable) passGame);
