@@ -53,6 +53,13 @@ public class SearchGamesActivity extends AppCompatActivity implements OnItemClic
         startView.putExtra("athlete", (Serializable) athlete);
         startActivity(startView);
     }
+
+    public void handleImageClicked(View view) {
+        Intent viewHome = new Intent(this, HomeScreenActivity.class);
+        viewHome.putExtra("athlete", (Serializable)athlete);
+        startActivity(viewHome);
+    }
+
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Log.d("position", new Integer(i).toString());

@@ -49,4 +49,10 @@ public class ProfileActivity extends AppCompatActivity {
         startView.putExtra("athlete", (Serializable) athlete);
         startActivity(startView);
     }
+
+    public void handleImageClicked(View view) {
+        Intent viewHome = new Intent(this, HomeScreenActivity.class);
+        viewHome.putExtra("athlete", (Serializable)athlete);
+        startActivity(viewHome);
+    }
 }

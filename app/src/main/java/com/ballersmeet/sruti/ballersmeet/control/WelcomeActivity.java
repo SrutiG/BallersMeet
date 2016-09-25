@@ -7,6 +7,8 @@ import android.view.View;
 
 import com.ballersmeet.sruti.ballersmeet.R;
 
+import java.io.Serializable;
+
 public class WelcomeActivity extends AppCompatActivity {
 
     @Override
@@ -24,4 +26,5 @@ public class WelcomeActivity extends AppCompatActivity {
         Intent loginView = new Intent(this, LoginActivity.class);
         startActivity(loginView);
     }
+
 }

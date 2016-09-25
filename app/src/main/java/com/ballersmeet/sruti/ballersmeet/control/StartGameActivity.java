@@ -87,6 +87,12 @@ public class StartGameActivity extends FragmentActivity implements OnMapReadyCal
         startActivity(profileView);
     }
 
+    public void handleImageClicked(View view) {
+        Intent viewHome = new Intent(this, HomeScreenActivity.class);
+        viewHome.putExtra("athlete", (Serializable)athlete);
+        startActivity(viewHome);
+    }
+
     public void handleStartClicked(View view) {
         Intent startView = new Intent(this, StartGameActivity.class);
         startView.putExtra("athlete", (Serializable) athlete);
