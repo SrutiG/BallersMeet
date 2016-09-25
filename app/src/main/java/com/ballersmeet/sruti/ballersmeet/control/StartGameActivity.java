@@ -7,12 +7,14 @@ import android.view.View;
 
 import com.ballersmeet.sruti.ballersmeet.R;
 import com.ballersmeet.sruti.ballersmeet.model.Athlete;
+import com.ballersmeet.sruti.ballersmeet.model.Game;
 
 import java.io.Serializable;
 
 public class StartGameActivity extends AppCompatActivity {
 
     private Athlete athlete;
+    private Game game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
