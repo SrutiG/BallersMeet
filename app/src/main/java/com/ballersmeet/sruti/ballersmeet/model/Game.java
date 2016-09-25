@@ -1,5 +1,7 @@
 package com.ballersmeet.sruti.ballersmeet.model;
 
+import com.google.android.gms.maps.model.Marker;
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,7 +14,8 @@ public class Game implements Serializable{
     private int size;
     private Athlete[] players;
     private Date date;
-    private Location location;
+    private Marker loc;
+    Location location;
 
     public Game(int numplayers, Date date, Location location) {
         this.numplayers = numplayers;
@@ -42,12 +45,12 @@ public class Game implements Serializable{
         date.setYear(year);
     }
 
-    public Location getLocation() {
-        return location;
-    }
-
     public Date getDate() {
         return date;
+    }
+
+    public Location getLocation() {
+        return location;
     }
 
     public String getDay() {
