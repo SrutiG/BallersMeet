@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ballersmeet.sruti.ballersmeet.control.HomeScreenActivity"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:layout_margin="10dp">
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="20dp"
+    android:onClick="handleNumClicked">
 
     <TextView
         android:layout_width="10dp"
         android:layout_height="wrap_content"
         android:id="@+id/numTV"
+        android:textStyle="bold"
         android:layout_marginRight="5dp"
-        android:onClick="handleNumClicked"/>
+        android:textColor="@color/wallet_holo_blue_light" />
     <TextView
         android:layout_width="100dp"
         android:layout_height="wrap_content"

@@ -27,11 +27,9 @@ class MyAdapter extends ArrayAdapter<Game>{
         View theView = theInflater.inflate(R.layout.row_layout, parent, false);
         Game game = getItem(position);
         String location = game.getLocation().toString();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         String numText = "" + (position+1);
-        String formatDate = sdf.format(game.getDate());
-        String date = formatDate.substring(5,10);
-        String time = formatDate.substring(11);
+        String date = game.getDay();
+        String time = game.getTime();
         TextView numTV = (TextView)theView.findViewById(R.id.numTV);
         TextView locTV = (TextView)theView.findViewById(R.id.gameLocTV);
         TextView dateTV = (TextView)theView.findViewById(R.id.dateTV);

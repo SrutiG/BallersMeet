@@ -3,6 +3,7 @@ package com.ballersmeet.sruti.ballersmeet.control;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import com.ballersmeet.sruti.ballersmeet.model.Athlete;
 import com.ballersmeet.sruti.ballersmeet.R;
@@ -12,6 +13,7 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.text.ParseException;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -53,9 +55,8 @@ public class HomeScreenActivity extends AppCompatActivity {
             ListAdapter gameAdapter = new MyAdapter(this, games);
 
             ListView games = (ListView) findViewById(R.id.gamesLV);
-
+            games.setClickable(true);
             games.setAdapter(gameAdapter);
-
 
         } catch (ParseException e) {
             e.printStackTrace();
@@ -81,7 +82,15 @@ public class HomeScreenActivity extends AppCompatActivity {
     }
 
 
-    public void handleNumClicked(View view) {
-        numTV = (TextView)findViewById(R.id.numTV);
+    public void handleNumClicked(View v) {
+        TextView posTV = (TextView) findViewById(R.id.numTV);
+        String pos = posTV.getText().toString();
+        Integer position = Integer.valueOf(pos);
+        Game passGame = games.get(position-1);
+        Intent viewGame = new Intent(this, ViewGameActivity.class);
+        viewGame.putExtra("athlete", (Serializable) athlete);
+        viewGame.putExtra("game", (Serializable) passGame);
+        startActivity(viewGame);
+
     }
 }

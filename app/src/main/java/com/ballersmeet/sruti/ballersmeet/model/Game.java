@@ -1,11 +1,13 @@
 package com.ballersmeet.sruti.ballersmeet.model;
 
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
  * Created by Anna on 9/24/2016.
  */
-public class Game {
+public class Game implements Serializable{
     private int numplayers;
     private int size;
     private Athlete[] players;
@@ -48,4 +50,25 @@ public class Game {
         return date;
     }
 
+    public String getDay() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        String formatDate = sdf.format(date);
+        String day = formatDate.substring(5,10);
+        return day;
+    }
+
+    public String getTime() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        String formatDate = sdf.format(date);
+        String time = formatDate.substring(11);
+        return time;
+    }
+
+    public int getSize(){
+        return size;
+    }
+
+    public int getNumplayers() {
+        return numplayers;
+    }
 }

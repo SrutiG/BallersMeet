@@ -1,9 +1,11 @@
 package com.ballersmeet.sruti.ballersmeet.model;
 
+import java.io.Serializable;
+
 /**
  * Created by Anna on 9/24/2016.
  */
-public class Location {
+public class Location implements Serializable {
     private String name;
     private String address;
     private int zip;
