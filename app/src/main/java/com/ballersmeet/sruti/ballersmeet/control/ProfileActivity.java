@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 import com.ballersmeet.sruti.ballersmeet.R;
 import com.ballersmeet.sruti.ballersmeet.model.Athlete;
@@ -13,12 +14,20 @@ import java.io.Serializable;
 public class ProfileActivity extends AppCompatActivity {
 
     private Athlete athlete;
+    EditText user, skill;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         athlete = (Athlete) getIntent().getExtras().getSerializable("athlete");
+        user = (EditText)findViewById(R.id.userTV);
+        skill = (EditText)findViewById(R.id.skillTV);
+        String userText = athlete.getFirstName() + " " + athlete.getLastName() + "("
+                + athlete.getUsername() + ")";
+        user.setText(userText);
+        String levelText = ("" + athlete.getLevel());
+        skill.setText(levelText);
 
     }
 

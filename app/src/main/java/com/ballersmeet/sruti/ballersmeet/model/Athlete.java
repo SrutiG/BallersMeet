@@ -30,4 +30,20 @@ public class Athlete implements Serializable {
             this.level = level;
         }
     }
+
+    public String getFirstName() {
+        return firstname;
+    }
+
+    public String getLastName() {
+        return lastname;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public int getLevel() {
+        return level;
+    }
 }
