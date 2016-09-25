@@ -70,4 +70,9 @@ public class JoinGameActivity extends AppCompatActivity {
         startActivity(startView);
     }
 
+    public void handleImageClicked(View view) {
+        Intent viewHome = new Intent(this, HomeScreenActivity.class);
+        viewHome.putExtra("athlete", (Serializable)athlete);
+        startActivity(viewHome);
+    }
 }
