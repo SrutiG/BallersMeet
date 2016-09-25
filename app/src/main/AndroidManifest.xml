@@ -46,6 +46,11 @@
         <activity android:name=".control.ViewGameActivity" />
         <activity android:name=".control.JoinGameActivity" />
         <activity android:name=".control.SearchGamesActivity"></activity>
+        <activity
+            android:name=".control.GameAdded"
+            android:label="@string/title_activity_game_added"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".control.JoinGameActivity"></activity>
     </application>
 
 </manifest>

@@ -12,6 +12,10 @@ public class Location implements Serializable {
     private String city;
     private String state;
 
+    public Location(String name) {
+        this(name, null, 0, null, null);
+    }
+
     public Location(String name, String address, int zip, String city, String state) {
         this.name = name;
         this.address = address;
