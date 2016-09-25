@@ -22,22 +22,14 @@ public class GameAdded extends AppCompatActivity implements Serializable {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-<<<<<<< HEAD
-=======
         Game addedGame = (Game) getIntent().getExtras().getSerializable("game");
         athlete = (Athlete) getIntent().getExtras().getSerializable("athlete");
->>>>>>> 93dc0899be72b3b5545d89da5af24d3d802fa330
         setContentView(R.layout.activity_game_added);
         try {
-            Game addedGame = (Game) getIntent().getExtras().getSerializable("game");
-            try {
-                TextView place = (TextView) findViewById(R.id.textView2);
-                place.setText(addedGame.getLocation().toString());
-            } catch(Exception b) {
-                System.out.println("it's the textfields");
-            }
-        } catch(Exception a){
-            System.out.println("it's the game");
+            TextView place = (TextView) findViewById(R.id.textView2);
+            place.setText(addedGame.getLocation().toString());
+        } catch(Exception b) {
+            System.out.println("it's the textfields");
         }
     }
 
