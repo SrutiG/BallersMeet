@@ -17,6 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".control.LoginActivity" />
+        <activity android:name=".control.RegisterActivity"/>
         <activity android:name=".control.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
