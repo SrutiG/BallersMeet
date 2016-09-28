@@ -25,13 +25,15 @@ public class GameAdded extends AppCompatActivity implements Serializable {
         Game addedGame = (Game) getIntent().getExtras().getSerializable("game");
         athlete = (Athlete) getIntent().getExtras().getSerializable("athlete");
         setContentView(R.layout.activity_game_added);
-        TextView place = (TextView) findViewById(R.id.textView2);
-        place.setText(addedGame.getLocation().toString());
-        TextView playaz = (TextView) findViewById(R.id.textView3);
-        playaz.setText(addedGame.getNumplayers());
+        try {
+            TextView place = (TextView) findViewById(R.id.textView2);
+            place.setText(addedGame.getLocation().toString());
+        } catch(Exception b) {
+            System.out.println("it's the textfields");
+        }
     }
 
-    public void handleHomePClick() {
+    public void handleHomePClick(View view) {
         Intent homeView = new Intent(this, HomeScreenActivity.class);
         homeView.putExtra("athlete", (Serializable) athlete);
         startActivity(homeView);
