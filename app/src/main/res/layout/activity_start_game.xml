@@ -5,33 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.ballersmeet.sruti.ballersmeet.control.FindGame">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop = "true"
-        android:orientation="vertical">
-        <ImageView
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:src="@drawable/ballerz_meet"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentTop="true"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:onClick="handleImageClicked"/>
 
-        <TextView
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:text="Ballerz Meet"
-            android:gravity="center"
-            android:textSize="25sp"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/ballerz"
-            android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
-            android:textStyle="bold"/>
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -105,33 +79,6 @@
                     android:id="@+id/search" />
             </LinearLayout>
         </ScrollView>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_gravity="bottom"
-        android:layout_alignParentBottom="true"
-        android:background="#999999">
-        <Button
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:text="Profile"
-            android:onClick="handleProfileClicked"
-            android:id="@+id/profileBT" />
-        <Button
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:text="Find Game"
-            android:onClick="handleFindClicked"
-            android:id="@+id/findGameBT" />
-        <Button
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:text="Create Game"
-            android:onClick="handleStartClicked"
-            android:id="@+id/startGameBT" />
     </LinearLayout>
 
 </RelativeLayout>
