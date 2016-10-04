@@ -1,6 +1,7 @@
 package com.ballersmeet.sruti.ballersmeet.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -15,7 +16,7 @@ public class Athlete implements Serializable {
     private int level;
     private String username;
     private String password;
-    private Queue<Game> gameQueue;
+    private ArrayList<Game> gameQueue;
 
     public Athlete(String firstname, String lastname, String email, String username, String password) {
         this.firstname = firstname;
@@ -51,13 +52,13 @@ public class Athlete implements Serializable {
         return level;
     }
 
-    public Queue<Game> getGames() {
+    public ArrayList<Game> getGames() {
         return gameQueue;
     }
 
     public void addGameQueue(Game game) {
         if (gameQueue == null) {
-            gameQueue = new LinkedList<Game>();
+            gameQueue = new ArrayList<Game>();
         }
         gameQueue.add(game);
     }

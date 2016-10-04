@@ -30,41 +30,19 @@ public class HomeScreenFragment extends Fragment implements OnItemClickListener 
 
     Athlete athlete;
     ArrayList<Game> games;
-    ArrayList<String> gameLocs;
-    ArrayList<String> gameTimes;
-    ArrayList<String> gameDates;
     TextView numTV;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         FragmentActivity faActivity  = (FragmentActivity) super.getActivity();
+        athlete = (Athlete) getArguments().getSerializable("athlete");
+        games = athlete.getGames();
         RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.activity_find_game, container, false);
-        //athlete = (Athlete) getIntent().getExtras().getSerializable("athlete");
-        //games = new ArrayList<Game>();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        try {
-            Date d_1 = sdf.parse("2016-09-27 13:30");
-            Date d_2 = sdf.parse("2016-09-27 15:00");
-            Date d_3 = sdf.parse("2016-09-27 17:15");
-            Date d_4 = sdf.parse("2016-09-26 13:00");
-            Date d_5 = sdf.parse("2016-09-26 16:00");
-            Location location_1 = new Location("CRC", "750 Ferst Dr NW", 30318, "Atlanta", "GA");
-            Location location_2 = new Location("North Ave Apts", "120 North Ave NW", 30313, "Atlanta", "GA");
-            Location location_3 = new Location("Klaus","266 Ferst Dr NW", 30332, "Atlanta", "GA");
-            games.add(new Game(4, d_1, location_1));
-            games.add(new Game(8, d_2, location_3));
-            games.add(new Game(6, d_3, location_2));
-            games.add(new Game(8, d_4, location_2));
-            games.add(new Game(4, d_5, location_1));
-            ListAdapter gameAdapter = new MyAdapter(super.getActivity(), games);
-            ListView games = (ListView) rlLayout.findViewById(R.id.gamesLV);
-            games.setClickable(true);
-            games.setAdapter(gameAdapter);
-            games.setOnItemClickListener(this);
-
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        ListAdapter gameAdapter = new MyAdapter(super.getActivity(), games);
+        ListView games = (ListView) rlLayout.findViewById(R.id.gamesLV);
+        games.setClickable(true);
+        games.setAdapter(gameAdapter);
+        games.setOnItemClickListener(this);
         numTV = (TextView) rlLayout.findViewById(R.id.numTV);
         return rlLayout;
     }
@@ -77,6 +55,7 @@ public class HomeScreenFragment extends Fragment implements OnItemClickListener 
         viewGame.putExtra("athlete", (Serializable) athlete);
         viewGame.putExtra("game", (Serializable) passGame);
         startActivity(viewGame);
+
 
     }
 }
