@@ -6,7 +6,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context="com.ballersmeet.sruti.ballersmeet.control.HomeScreenActivity"
+    tools:context=".control.HomeScreenFragment"
     android:weightSum="1">
 
     <LinearLayout

@@ -2,11 +2,16 @@ package com.ballersmeet.sruti.ballersmeet.control;
 
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.NumberPicker;
+import android.widget.RelativeLayout;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -17,7 +22,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -26,10 +31,7 @@ import com.ballersmeet.sruti.ballersmeet.model.Game;
 import java.io.Serializable;
 import java.util.Date;
 
-import static com.ballersmeet.sruti.ballersmeet.R.id.calendarView;
-import static com.ballersmeet.sruti.ballersmeet.R.id.numberPicker;
-
-public class StartGameActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+public class CreateGameFragment extends Fragment implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private Athlete athlete;
     private Game game;
@@ -45,20 +47,25 @@ public class StartGameActivity extends FragmentActivity implements OnMapReadyCal
     private static final LatLng PIKE = new LatLng(33.776774, -84.395269);
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start_game);
-        athlete = (Athlete) getIntent().getExtras().getSerializable("athlete");
-        MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        FragmentActivity faActivity  = (FragmentActivity) super.getActivity();
+        RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.activity_find_game, container, false);
+
+        //athlete = (Athlete) getIntent().getExtras().getSerializable("athlete");
+        //MapFragment mapFragment = new MapFragment();
+        //FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        //transaction.add(R.id.map, mapFragment ).commit();
+        FragmentManager fm = getChildFragmentManager();
+        SupportMapFragment mapFragment = (SupportMapFragment) fm.findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         date = new Date();
-        CalendarView v = (CalendarView)findViewById(R.id.calendarView);
+        CalendarView v = (CalendarView) rlLayout.findViewById(R.id.calendarView);
         v.setOnDateChangeListener( new CalendarView.OnDateChangeListener() {
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 date = new Date( year, month, dayOfMonth );
             }//met
         });
-        TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
+        TimePicker timePicker = (TimePicker) rlLayout.findViewById(R.id.timePicker);
         timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
                 date.setHours(hourOfDay);
@@ -66,35 +73,38 @@ public class StartGameActivity extends FragmentActivity implements OnMapReadyCal
             }
         });
         numPlayers = 0;
-        NumberPicker np = (NumberPicker)findViewById(R.id.numberPicker);
+        NumberPicker np = (NumberPicker) rlLayout.findViewById(R.id.numberPicker);
         np.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker numberPicker, int i, int i2) {
                 numPlayers = i2;
             }
         });
+        //rlLayout.findViewById(R.id.someGuiElement);
+        return rlLayout;
     }
 
+
     public void handleFindClicked(View view) {
-        Intent findView = new Intent(this, FindGame.class);
+        Intent findView = new Intent(super.getActivity(), FindGameFragment.class);
         findView.putExtra("athlete", (Serializable) athlete);
         startActivity(findView);
     }
 
     public void handleProfileClicked(View view) {
-        Intent profileView = new Intent(this, ProfileActivity.class);
+        Intent profileView = new Intent(super.getActivity(), ProfileFragment.class);
         profileView.putExtra("athlete", (Serializable) athlete);
         startActivity(profileView);
     }
 
     public void handleImageClicked(View view) {
-        Intent viewHome = new Intent(this, HomeScreenActivity.class);
+        Intent viewHome = new Intent(super.getActivity(), HomeScreenFragment.class);
         viewHome.putExtra("athlete", (Serializable)athlete);
         startActivity(viewHome);
     }
 
     public void handleStartClicked(View view) {
-        Intent startView = new Intent(this, StartGameActivity.class);
+        Intent startView = new Intent(super.getActivity(), CreateGameFragment.class);
         startView.putExtra("athlete", (Serializable) athlete);
         startActivity(startView);
     }
@@ -134,10 +144,7 @@ public class StartGameActivity extends FragmentActivity implements OnMapReadyCal
         if (clickCount != null) {
             clickCount = clickCount + 1;
             marker.setTag(clickCount);
-            Toast.makeText(this,
-                    marker.getTitle() +
-                            " has been clicked.",
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(super.getActivity(), marker.getTitle() + " has been clicked.", Toast.LENGTH_SHORT).show();
             loc = marker;
         }
 
@@ -150,7 +157,7 @@ public class StartGameActivity extends FragmentActivity implements OnMapReadyCal
     public void handleStartGameClick(View view) {
         Location gameloc = new Location(loc.getTitle());
         Game newGame = new Game(6, date, gameloc);
-        Intent added = new Intent(this, GameAdded.class);
+        Intent added = new Intent(super.getActivity(), GameAdded.class);
         added.putExtra("game", (Serializable) newGame);
         added.putExtra("athlete", (Serializable) athlete);
         startActivity(added);

@@ -5,11 +5,10 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+
 import com.ballersmeet.sruti.ballersmeet.model.Athlete;
 
 import com.ballersmeet.sruti.ballersmeet.R;
@@ -38,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         String username = user.getText().toString();
         String password = pass.getText().toString();
         if (password.equals("pass") && username.equals("user")) {
-            Intent homeView = new Intent(this, HomeScreenActivity.class);
+            Intent homeView = new Intent(this, HomeScreenFragment.class);
             Athlete athlete = new Athlete("Sruti", "Guhathakurta", "sruti@gatech.edu", username, password);
             homeView.putExtra("athlete", (Serializable) athlete);
             startActivity(homeView);

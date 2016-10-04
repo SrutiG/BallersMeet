@@ -2,10 +2,7 @@ package com.ballersmeet.sruti.ballersmeet.control;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
@@ -34,7 +31,7 @@ public class GameAdded extends AppCompatActivity implements Serializable {
     }
 
     public void handleHomePClick(View view) {
-        Intent homeView = new Intent(this, HomeScreenActivity.class);
+        Intent homeView = new Intent(this, HomeScreenFragment.class);
         homeView.putExtra("athlete", (Serializable) athlete);
         startActivity(homeView);
     }

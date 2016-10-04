@@ -41,7 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
         String emailAddress = email.getText().toString();
         String password = pw.getText().toString();
         Athlete athlete = new Athlete(firstName, lastName, emailAddress, username, password);
-        Intent homeView = new Intent(this, HomeScreenActivity.class);
+        Intent homeView = new Intent(this, HomeScreenFragment.class);
         homeView.putExtra("athlete", (Serializable) athlete);
         startActivity(homeView);
     }

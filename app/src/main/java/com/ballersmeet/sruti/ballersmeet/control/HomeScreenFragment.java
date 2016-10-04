@@ -1,9 +1,11 @@
 package com.ballersmeet.sruti.ballersmeet.control;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import com.ballersmeet.sruti.ballersmeet.model.Athlete;
 import com.ballersmeet.sruti.ballersmeet.R;
@@ -12,17 +14,19 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ArrayList;
 import java.text.ParseException;
+
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
 import java.io.Serializable;
 
-public class HomeScreenActivity extends AppCompatActivity implements OnItemClickListener {
+public class HomeScreenFragment extends Fragment implements OnItemClickListener {
 
     Athlete athlete;
     ArrayList<Game> games;
@@ -32,11 +36,11 @@ public class HomeScreenActivity extends AppCompatActivity implements OnItemClick
     TextView numTV;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        athlete = (Athlete) getIntent().getExtras().getSerializable("athlete");
-        setContentView(R.layout.activity_home_screen);
-        games = new ArrayList<Game>();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        FragmentActivity faActivity  = (FragmentActivity) super.getActivity();
+        RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.activity_find_game, container, false);
+        //athlete = (Athlete) getIntent().getExtras().getSerializable("athlete");
+        //games = new ArrayList<Game>();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         try {
             Date d_1 = sdf.parse("2016-09-27 13:30");
@@ -52,9 +56,8 @@ public class HomeScreenActivity extends AppCompatActivity implements OnItemClick
             games.add(new Game(6, d_3, location_2));
             games.add(new Game(8, d_4, location_2));
             games.add(new Game(4, d_5, location_1));
-            ListAdapter gameAdapter = new MyAdapter(this, games);
-
-            ListView games = (ListView) findViewById(R.id.gamesLV);
+            ListAdapter gameAdapter = new MyAdapter(super.getActivity(), games);
+            ListView games = (ListView) rlLayout.findViewById(R.id.gamesLV);
             games.setClickable(true);
             games.setAdapter(gameAdapter);
             games.setOnItemClickListener(this);
@@ -62,22 +65,24 @@ public class HomeScreenActivity extends AppCompatActivity implements OnItemClick
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        numTV = (TextView) rlLayout.findViewById(R.id.numTV);
+        return rlLayout;
     }
 
     public void handleFindClicked(View view) {
-        Intent findView = new Intent(this, FindGame.class);
+        Intent findView = new Intent(super.getActivity(), FindGameFragment.class);
         findView.putExtra("athlete", (Serializable) athlete);
         startActivity(findView);
     }
 
     public void handleProfileClicked(View view) {
-        Intent profileView = new Intent(this, ProfileActivity.class);
+        Intent profileView = new Intent(super.getActivity(), ProfileFragment.class);
         profileView.putExtra("athlete", (Serializable) athlete);
         startActivity(profileView);
     }
 
     public void handleStartClicked(View view) {
-        Intent startView = new Intent(this, StartGameActivity.class);
+        Intent startView = new Intent(super.getActivity(), CreateGameFragment.class);
         startView.putExtra("athlete", (Serializable) athlete);
         startActivity(startView);
     }
@@ -88,7 +93,7 @@ public class HomeScreenActivity extends AppCompatActivity implements OnItemClick
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Log.d("position", new Integer(i).toString() );
         Game passGame = games.get(i);
-        Intent viewGame = new Intent(this, ViewGameActivity.class);
+        Intent viewGame = new Intent(super.getActivity(), ViewGameActivity.class);
         viewGame.putExtra("athlete", (Serializable) athlete);
         viewGame.putExtra("game", (Serializable) passGame);
         startActivity(viewGame);

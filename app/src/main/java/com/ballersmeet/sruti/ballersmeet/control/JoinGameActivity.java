@@ -40,38 +40,38 @@ public class JoinGameActivity extends AppCompatActivity {
 
     public void handleJoinClicked(View view) {
         athlete.addGameQueue(game);
-        Intent viewHome = new Intent(this, HomeScreenActivity.class);
+        Intent viewHome = new Intent(this, HomeScreenFragment.class);
         viewHome.putExtra("athlete", (Serializable)athlete);
         startActivity(viewHome);
 
     }
 
     public void handleCancelClick(View view) {
-        Intent viewHome = new Intent(this, HomeScreenActivity.class);
+        Intent viewHome = new Intent(this, HomeScreenFragment.class);
         viewHome.putExtra("athlete", (Serializable)athlete);
         startActivity(viewHome);
     }
 
     public void handleFindClicked(View view) {
-        Intent findView = new Intent(this, FindGame.class);
+        Intent findView = new Intent(this, FindGameFragment.class);
         findView.putExtra("athlete", (Serializable) athlete);
         startActivity(findView);
     }
 
     public void handleProfileClicked(View view) {
-        Intent profileView = new Intent(this, ProfileActivity.class);
+        Intent profileView = new Intent(this, ProfileFragment.class);
         profileView.putExtra("athlete", (Serializable) athlete);
         startActivity(profileView);
     }
 
     public void handleStartClicked(View view) {
-        Intent startView = new Intent(this, StartGameActivity.class);
+        Intent startView = new Intent(this, CreateGameFragment.class);
         startView.putExtra("athlete", (Serializable) athlete);
         startActivity(startView);
     }
 
     public void handleImageClicked(View view) {
-        Intent viewHome = new Intent(this, HomeScreenActivity.class);
+        Intent viewHome = new Intent(this, HomeScreenFragment.class);
         viewHome.putExtra("athlete", (Serializable)athlete);
         startActivity(viewHome);
     }
