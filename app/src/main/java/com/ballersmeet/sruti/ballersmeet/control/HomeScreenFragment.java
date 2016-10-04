@@ -69,26 +69,6 @@ public class HomeScreenFragment extends Fragment implements OnItemClickListener 
         return rlLayout;
     }
 
-    public void handleFindClicked(View view) {
-        Intent findView = new Intent(super.getActivity(), FindGameFragment.class);
-        findView.putExtra("athlete", (Serializable) athlete);
-        startActivity(findView);
-    }
-
-    public void handleProfileClicked(View view) {
-        Intent profileView = new Intent(super.getActivity(), ProfileFragment.class);
-        profileView.putExtra("athlete", (Serializable) athlete);
-        startActivity(profileView);
-    }
-
-    public void handleStartClicked(View view) {
-        Intent startView = new Intent(super.getActivity(), CreateGameFragment.class);
-        startView.putExtra("athlete", (Serializable) athlete);
-        startActivity(startView);
-    }
-
-
-
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Log.d("position", new Integer(i).toString() );

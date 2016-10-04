@@ -44,27 +44,4 @@ public class ViewGameActivity extends AppCompatActivity {
         startActivity(viewHome);
     }
 
-    public void handleFindClicked(View view) {
-        Intent findView = new Intent(this, FindGameFragment.class);
-        findView.putExtra("athlete", (Serializable) athlete);
-        startActivity(findView);
-    }
-
-    public void handleProfileClicked(View view) {
-        Intent profileView = new Intent(this, ProfileFragment.class);
-        profileView.putExtra("athlete", (Serializable) athlete);
-        startActivity(profileView);
-    }
-
-    public void handleStartClicked(View view) {
-        Intent startView = new Intent(this, CreateGameFragment.class);
-        startView.putExtra("athlete", (Serializable) athlete);
-        startActivity(startView);
-    }
-
-    public void handleImageClicked(View view) {
-        Intent viewHome = new Intent(this, HomeScreenFragment.class);
-        viewHome.putExtra("athlete", (Serializable)athlete);
-        startActivity(viewHome);
-    }
 }

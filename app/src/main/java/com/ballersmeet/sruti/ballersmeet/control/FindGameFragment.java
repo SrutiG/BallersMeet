@@ -30,31 +30,6 @@ public class FindGameFragment extends Fragment {
         return rlLayout;
     }
 
-    public void handleFindClicked(View view) {
-        Intent findView = new Intent(super.getActivity(), FindGameFragment.class);
-        findView.putExtra("athlete", (Serializable) athlete);
-        startActivity(findView);
-    }
-
-    public void handleProfileClicked(View view) {
-        Intent profileView = new Intent(super.getActivity(), ProfileFragment.class);
-        profileView.putExtra("athlete", (Serializable) athlete);
-        startActivity(profileView);
-    }
-
-    public void handleStartClicked(View view) {
-        Intent startView = new Intent(super.getActivity(), CreateGameFragment.class);
-        startView.putExtra("athlete", (Serializable) athlete);
-        startActivity(startView);
-    }
-
-    public void handleImageClicked(View view) {
-        Intent viewHome = new Intent(super.getActivity(), HomeScreenFragment.class);
-        viewHome.putExtra("athlete", (Serializable)athlete);
-        startActivity(viewHome);
-    }
-
-
     public void handleSearch(View view) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         try {
