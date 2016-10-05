@@ -40,9 +40,9 @@ public class JoinGameActivity extends AppCompatActivity {
 
     public void handleJoinClicked(View view) {
         athlete.addGameQueue(game);
-        Intent viewHome = new Intent(this, HomeScreenFragment.class);
-        viewHome.putExtra("athlete", (Serializable)athlete);
-        startActivity(viewHome);
+        Intent viewMain = new Intent(this, MainActivity.class);
+        viewMain.putExtra("athlete", (Serializable)athlete);
+        startActivity(viewMain);
 
     }
 
