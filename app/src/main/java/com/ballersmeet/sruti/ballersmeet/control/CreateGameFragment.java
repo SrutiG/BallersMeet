@@ -51,6 +51,17 @@ public class CreateGameFragment extends Fragment implements OnMapReadyCallback, 
         FragmentActivity faActivity  = (FragmentActivity) super.getActivity();
         RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.fragment_create_game, container, false);
         searchGames = (Button) rlLayout.findViewById(R.id.searchGames);
+        searchGames.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Location gameloc = new Location(loc.getTitle());
+                Game newGame = new Game(6, date, gameloc);
+                Intent added = new Intent(getActivity(), GameAdded.class);
+                added.putExtra("game", (Serializable) newGame);
+                added.putExtra("athlete", (Serializable) athlete);
+                startActivity(added);
+            }
+        });
         athlete = (Athlete) getArguments().getSerializable("athlete");
         //MapFragment mapFragment = new MapFragment();
         //FragmentTransaction transaction = getChildFragmentManager().beginTransaction();

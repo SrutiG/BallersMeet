@@ -27,6 +27,17 @@ public class FindGameFragment extends Fragment {
         FragmentActivity faActivity  = (FragmentActivity) super.getActivity();
         RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.fragment_find_game, container, false);
         search = (Button) rlLayout.findViewById(R.id.search);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("athlete", (Serializable) athlete);
+                bundle.putSerializable("options", (Serializable) options);
+                SearchGamesFragment search = new SearchGamesFragment();
+                search.setArguments(bundle);
+                main.setFragment(search);
+            }
+        });
         athlete = (Athlete) getArguments().getSerializable("athlete");
         options = (ArrayList<Game>) getArguments().getSerializable("options");
         return rlLayout;
