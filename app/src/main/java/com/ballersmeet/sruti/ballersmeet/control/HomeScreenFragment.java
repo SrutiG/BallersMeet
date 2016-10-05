@@ -19,6 +19,7 @@ import java.text.ParseException;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -27,12 +28,12 @@ import android.widget.TextView;
 
 import java.io.Serializable;
 
-public class HomeScreenFragment extends ListFragment implements OnItemClickListener {
+public class HomeScreenFragment extends ListFragment {
 
     Athlete athlete;
     ArrayList<Game> games;
     TextView numTV;
-    ListView gamesLV;
+    ListView list;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -40,17 +41,19 @@ public class HomeScreenFragment extends ListFragment implements OnItemClickListe
         athlete = (Athlete) getArguments().getSerializable("athlete");
         games = athlete.getGames();
         RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.activity_home_screen, container, false);
-        ListAdapter gameAdapter = new MyAdapter(super.getActivity(), games);
-        gamesLV = (ListView) rlLayout.findViewById(R.id.gamesLV);
-        gamesLV.setClickable(true);
-        gamesLV.setAdapter(gameAdapter);
-        gamesLV.setOnItemClickListener(this);
+        ListAdapter adapter = new MyAdapter(inflater.getContext(), games);
+        setListAdapter(adapter);
         numTV = (TextView) rlLayout.findViewById(R.id.numTV);
-        return rlLayout;
+        return super.onCreateView(inflater, container, savedInstanceState);
+        //ListAdapter gameAdapter = new MyAdapter(super.getActivity(), games);
+        //list = (ListView) rlLayout.findViewById(R.id.list);
+        //list.setClickable(true);
+        //list.setAdapter(gameAdapter);
+        //list.setOnItemClickListener(this);
     }
 
     @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+    public void onListItemClick(ListView l, View v, int i, long id) {
         Log.d("position", new Integer(i).toString() );
         Game passGame = games.get(i);
         Intent viewGame = new Intent(super.getActivity(), ViewGameActivity.class);
@@ -58,6 +61,6 @@ public class HomeScreenFragment extends ListFragment implements OnItemClickListe
         viewGame.putExtra("game", (Serializable) passGame);
         startActivity(viewGame);
 
-
     }
+
 }
