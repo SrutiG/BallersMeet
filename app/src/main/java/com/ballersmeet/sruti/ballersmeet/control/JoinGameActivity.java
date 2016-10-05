@@ -23,7 +23,7 @@ public class JoinGameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_game);
+        setContentView(R.layout.activity_join_game);
         athlete = (Athlete) getIntent().getExtras().getSerializable("athlete");
         game = (Game) getIntent().getExtras().getSerializable("game");
         location = (TextView) findViewById(R.id.locationTV);

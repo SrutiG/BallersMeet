@@ -41,10 +41,10 @@ public class SearchGamesFragment extends ListFragment {
     public void onListItemClick(ListView l, View v, int i, long id) {
         Log.d("position", new Integer(i).toString() );
         Game passGame = options.get(i);
-        Intent viewGame = new Intent(super.getActivity(), ViewGameActivity.class);
-        viewGame.putExtra("athlete", (Serializable) athlete);
-        viewGame.putExtra("game", (Serializable) passGame);
-        startActivity(viewGame);
+        Intent joinGame = new Intent(super.getActivity(), JoinGameActivity.class);
+        joinGame.putExtra("athlete", (Serializable) athlete);
+        joinGame.putExtra("game", (Serializable) passGame);
+        startActivity(joinGame);
 
     }
 }
