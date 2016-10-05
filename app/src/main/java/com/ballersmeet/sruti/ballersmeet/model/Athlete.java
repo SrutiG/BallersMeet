@@ -62,4 +62,8 @@ public class Athlete implements Serializable {
         }
         gameQueue.add(game);
     }
+
+    public void setGames(ArrayList<Game> games) {
+        gameQueue = games;
+    }
 }

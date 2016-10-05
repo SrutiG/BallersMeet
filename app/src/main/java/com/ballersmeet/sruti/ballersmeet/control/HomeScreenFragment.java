@@ -3,6 +3,7 @@ package com.ballersmeet.sruti.ballersmeet.control;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,7 +27,7 @@ import android.widget.TextView;
 
 import java.io.Serializable;
 
-public class HomeScreenFragment extends Fragment implements OnItemClickListener {
+public class HomeScreenFragment extends ListFragment implements OnItemClickListener {
 
     Athlete athlete;
     ArrayList<Game> games;
@@ -38,7 +39,7 @@ public class HomeScreenFragment extends Fragment implements OnItemClickListener 
         FragmentActivity faActivity  = (FragmentActivity) super.getActivity();
         athlete = (Athlete) getArguments().getSerializable("athlete");
         games = athlete.getGames();
-        RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.activity_find_game, container, false);
+        RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.activity_home_screen, container, false);
         ListAdapter gameAdapter = new MyAdapter(super.getActivity(), games);
         gamesLV = (ListView) rlLayout.findViewById(R.id.gamesLV);
         gamesLV.setClickable(true);

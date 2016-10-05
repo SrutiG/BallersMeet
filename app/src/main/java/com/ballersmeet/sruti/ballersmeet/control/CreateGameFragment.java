@@ -49,9 +49,9 @@ public class CreateGameFragment extends Fragment implements OnMapReadyCallback, 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         FragmentActivity faActivity  = (FragmentActivity) super.getActivity();
-        RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.activity_find_game, container, false);
+        RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.activity_start_game, container, false);
 
-        //athlete = (Athlete) getIntent().getExtras().getSerializable("athlete");
+        athlete = (Athlete) getArguments().getSerializable("athlete");
         //MapFragment mapFragment = new MapFragment();
         //FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         //transaction.add(R.id.map, mapFragment ).commit();

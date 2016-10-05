@@ -44,13 +44,6 @@ public class MainActivity extends FragmentActivity {
         searchBT = (ImageButton) findViewById(R.id.searchBT);
         createBT = (ImageButton) findViewById(R.id.createBT);
         fragment = (FrameLayout) findViewById(R.id.fragment);
-
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("athlete", (Serializable) athlete);
-        HomeScreenFragment home = new HomeScreenFragment();
-        home.setArguments(bundle);
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment, home).commit();
-
         games = new ArrayList<Game>();
         options = new ArrayList<Game>();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -75,7 +68,13 @@ public class MainActivity extends FragmentActivity {
             Game g2 = new Game(10, d_7, location_4);
             options.add(g1);
             options.add(g2);
+            athlete.setGames(games);
 
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("athlete", (Serializable) athlete);
+            HomeScreenFragment home = new HomeScreenFragment();
+            home.setArguments(bundle);
+            getSupportFragmentManager().beginTransaction().add(R.id.fragment, home).commit();
 
         } catch (ParseException e) {
             e.printStackTrace();

@@ -23,7 +23,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         FragmentActivity faActivity  = (FragmentActivity) super.getActivity();
-        RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.activity_find_game, container, false);
+        RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.activity_profile, container, false);
         athlete = (Athlete) getArguments().getSerializable("athlete");
         user = (TextView) rlLayout.findViewById(R.id.userTV);
         skill = (TextView) rlLayout.findViewById(R.id.skillTV);
