@@ -87,7 +87,7 @@ public class MainActivity extends FragmentActivity {
         bundle.putSerializable("athlete", (Serializable) athlete);
         HomeScreenFragment home = new HomeScreenFragment();
         home.setArguments(bundle);
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment, home).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment, home).commit();
     }
 
 
@@ -96,7 +96,7 @@ public class MainActivity extends FragmentActivity {
         bundle.putSerializable("athlete", (Serializable) athlete);
         HomeScreenFragment home = new HomeScreenFragment();
         home.setArguments(bundle);
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment, home).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment, home).commit();
     }
 
     public void handleSearchClicked(View view) {
@@ -106,7 +106,7 @@ public class MainActivity extends FragmentActivity {
         FindGameFragment search = new FindGameFragment();
         search.setArguments(bundle);
         search.setMain(this);
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment, search).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment, search).commit();
     }
 
     public void handleCreateClicked(View view) {
@@ -114,7 +114,7 @@ public class MainActivity extends FragmentActivity {
         bundle.putSerializable("athlete", (Serializable) athlete);
         CreateGameFragment create = new CreateGameFragment();
         create.setArguments(bundle);
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment, create).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment, create).commit();
 
     }
 
@@ -123,10 +123,10 @@ public class MainActivity extends FragmentActivity {
         bundle.putSerializable("athlete", (Serializable) athlete);
         ProfileFragment profile = new ProfileFragment();
         profile.setArguments(bundle);
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment, profile).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment, profile).commit();
     }
 
     public void setFragment(Fragment fragment) {
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment, fragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment, fragment).commit();
     }
 }
