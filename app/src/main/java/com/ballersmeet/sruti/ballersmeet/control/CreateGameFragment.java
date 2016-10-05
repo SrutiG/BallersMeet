@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.NumberPicker;
 import android.widget.RelativeLayout;
@@ -45,12 +46,13 @@ public class CreateGameFragment extends Fragment implements OnMapReadyCallback, 
     private static final LatLng CRC = new LatLng(33.775915, -84.403926);
     private static final LatLng PETERS = new LatLng(33.775269, -84.393539);
     private static final LatLng PIKE = new LatLng(33.776774, -84.395269);
+    Button searchGames;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         FragmentActivity faActivity  = (FragmentActivity) super.getActivity();
         RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.activity_start_game, container, false);
-
+        searchGames = (Button) rlLayout.findViewById(R.id.searchGames);
         athlete = (Athlete) getArguments().getSerializable("athlete");
         //MapFragment mapFragment = new MapFragment();
         //FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
@@ -84,30 +86,6 @@ public class CreateGameFragment extends Fragment implements OnMapReadyCallback, 
         return rlLayout;
     }
 
-
-    public void handleFindClicked(View view) {
-        Intent findView = new Intent(super.getActivity(), FindGameFragment.class);
-        findView.putExtra("athlete", (Serializable) athlete);
-        startActivity(findView);
-    }
-
-    public void handleProfileClicked(View view) {
-        Intent profileView = new Intent(super.getActivity(), ProfileFragment.class);
-        profileView.putExtra("athlete", (Serializable) athlete);
-        startActivity(profileView);
-    }
-
-    public void handleImageClicked(View view) {
-        Intent viewHome = new Intent(super.getActivity(), HomeScreenFragment.class);
-        viewHome.putExtra("athlete", (Serializable)athlete);
-        startActivity(viewHome);
-    }
-
-    public void handleStartClicked(View view) {
-        Intent startView = new Intent(super.getActivity(), CreateGameFragment.class);
-        startView.putExtra("athlete", (Serializable) athlete);
-        startActivity(startView);
-    }
 
     public void onMapReady(GoogleMap map) {
         mMap = map;
