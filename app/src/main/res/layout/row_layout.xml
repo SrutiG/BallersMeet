@@ -14,21 +14,29 @@
         android:layout_height="wrap_content"
         android:id="@+id/numTV"
         android:textStyle="bold"
+        android:text="1"
         android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp"
+        android:textSize="20sp"
         android:textColor="@color/wallet_holo_blue_light" />
     <TextView
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:text="location name"
+        android:textSize="20sp"
         android:id="@+id/gameLocTV" />
 
     <TextView
-        android:layout_width="50dp"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
+        android:text="date"
+        android:textSize="20sp"
         android:id="@+id/dateTV"/>
     <TextView
-        android:layout_width="50dp"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
+        android:text="time"
+        android:textSize="20sp"
         android:id="@+id/timeTV"/>
 
 
