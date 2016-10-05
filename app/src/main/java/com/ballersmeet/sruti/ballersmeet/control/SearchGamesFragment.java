@@ -31,9 +31,8 @@ public class SearchGamesFragment extends Fragment implements OnItemClickListener
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         FragmentActivity faActivity  = (FragmentActivity) super.getActivity();
         RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.activity_find_game, container, false);
-
-        //options = (ArrayList<Game>) getIntent().getExtras().getSerializable("options");
-        //athlete = (Athlete) getIntent().getExtras().getSerializable("athlete");
+        athlete = (Athlete) getArguments().getSerializable("athlete");
+        options = (ArrayList<Game>) getArguments().getSerializable("options");
         ListAdapter gameAdapter = new MyAdapter(super.getActivity(), options);
 
         ListView games = (ListView) rlLayout.findViewById(R.id.gamesLV);

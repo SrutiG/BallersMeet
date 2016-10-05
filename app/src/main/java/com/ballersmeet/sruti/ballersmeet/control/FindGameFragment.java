@@ -21,33 +21,23 @@ import java.util.ArrayList;
 public class FindGameFragment extends Fragment {
 
     Athlete athlete;
+    ArrayList<Game> options;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         FragmentActivity faActivity  = (FragmentActivity) super.getActivity();
         RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.activity_find_game, container, false);
-        //rlLayout.findViewById(R.id.someGuiElement);
+        athlete = (Athlete) getArguments().getSerializable("athlete");
+        options = (ArrayList<Game>) getArguments().getSerializable("options");
         return rlLayout;
     }
 
     public void handleSearch(View view) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        try {
-            Date d_1 = sdf.parse("2016-09-26 15:00");
-            Date d_2 = sdf.parse("2016-09-26 16:00");
-            Location location_1 = new Location("CRC", "750 Ferst Dr NW", 30318, "Atlanta", "GA");
-            Game g1 = new Game(6, d_1, location_1);
-            Game g2 = new Game(10, d_2, location_1);
-            ArrayList<Game> options = new ArrayList<Game>();
-            options.add(g1);
-            options.add(g2);
-            Intent viewSearch = new Intent(super.getActivity(), SearchGamesFragment.class);
-            viewSearch.putExtra("options", (Serializable) options);
-            viewSearch.putExtra("athlete", (Serializable) athlete);
-            startActivity(viewSearch);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("athlete", (Serializable) athlete);
+        bundle.putSerializable("options", (Serializable) options);
+        SearchGamesFragment search = new SearchGamesFragment();
+        search.setArguments(bundle);
 
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
     }
 }

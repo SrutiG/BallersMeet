@@ -24,7 +24,7 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         FragmentActivity faActivity  = (FragmentActivity) super.getActivity();
         RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.activity_find_game, container, false);
-        //athlete = (Athlete) getIntent().getExtras().getSerializable("athlete");
+        athlete = (Athlete) getArguments().getSerializable("athlete");
         user = (TextView) rlLayout.findViewById(R.id.userTV);
         skill = (TextView) rlLayout.findViewById(R.id.skillTV);
         String userText = athlete.getFirstName() + " " + athlete.getLastName() + "("
