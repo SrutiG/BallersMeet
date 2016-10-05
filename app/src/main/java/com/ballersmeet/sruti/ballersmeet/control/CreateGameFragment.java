@@ -5,7 +5,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,6 @@ import com.ballersmeet.sruti.ballersmeet.model.Athlete;
 import com.ballersmeet.sruti.ballersmeet.model.Location;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
@@ -51,7 +49,7 @@ public class CreateGameFragment extends Fragment implements OnMapReadyCallback, 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         FragmentActivity faActivity  = (FragmentActivity) super.getActivity();
-        RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.activity_start_game, container, false);
+        RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.fragment_create_game, container, false);
         searchGames = (Button) rlLayout.findViewById(R.id.searchGames);
         athlete = (Athlete) getArguments().getSerializable("athlete");
         //MapFragment mapFragment = new MapFragment();
@@ -82,7 +80,7 @@ public class CreateGameFragment extends Fragment implements OnMapReadyCallback, 
                 numPlayers = i2;
             }
         });
-        //rlLayout.findViewById(R.id.someGuiElement);
+
         return rlLayout;
     }
 
@@ -132,7 +130,7 @@ public class CreateGameFragment extends Fragment implements OnMapReadyCallback, 
         return false;
     }
 
-    public void handleStartGameClick(View view) {
+    public void handleCreateGameClicked(View view) {
         Location gameloc = new Location(loc.getTitle());
         Game newGame = new Game(6, date, gameloc);
         Intent added = new Intent(super.getActivity(), GameAdded.class);

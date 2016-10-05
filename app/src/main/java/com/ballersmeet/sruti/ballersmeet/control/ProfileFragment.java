@@ -1,6 +1,5 @@
 package com.ballersmeet.sruti.ballersmeet.control;
 
-import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -13,8 +12,6 @@ import android.widget.TextView;
 import com.ballersmeet.sruti.ballersmeet.R;
 import com.ballersmeet.sruti.ballersmeet.model.Athlete;
 
-import java.io.Serializable;
-
 public class ProfileFragment extends Fragment {
 
     private Athlete athlete;
@@ -23,7 +20,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         FragmentActivity faActivity  = (FragmentActivity) super.getActivity();
-        RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.activity_profile, container, false);
+        RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.fragment_profile, container, false);
         athlete = (Athlete) getArguments().getSerializable("athlete");
         user = (TextView) rlLayout.findViewById(R.id.userTV);
         skill = (TextView) rlLayout.findViewById(R.id.skillTV);

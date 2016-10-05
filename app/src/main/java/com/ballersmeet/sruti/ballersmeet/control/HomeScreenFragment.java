@@ -2,7 +2,6 @@ package com.ballersmeet.sruti.ballersmeet.control;
 
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,15 +10,10 @@ import android.view.View;
 import com.ballersmeet.sruti.ballersmeet.model.Athlete;
 import com.ballersmeet.sruti.ballersmeet.R;
 import com.ballersmeet.sruti.ballersmeet.model.*;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 import java.util.ArrayList;
-import java.text.ParseException;
 
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -40,7 +34,7 @@ public class HomeScreenFragment extends ListFragment {
         FragmentActivity faActivity  = (FragmentActivity) super.getActivity();
         athlete = (Athlete) getArguments().getSerializable("athlete");
         games = athlete.getGames();
-        RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.activity_home_screen, container, false);
+        RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.fragment_home_screen, container, false);
         ListAdapter adapter = new MyAdapter(inflater.getContext(), games);
         setListAdapter(adapter);
         numTV = (TextView) rlLayout.findViewById(R.id.numTV);

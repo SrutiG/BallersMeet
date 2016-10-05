@@ -6,17 +6,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.AdapterView.OnItemClickListener;
 
 import com.ballersmeet.sruti.ballersmeet.model.*;
 
 import android.support.v4.app.ListFragment;
 import android.support.v4.app.FragmentActivity;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.ballersmeet.sruti.ballersmeet.R;
 
@@ -32,7 +29,7 @@ public class SearchGamesFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         FragmentActivity faActivity  = (FragmentActivity) super.getActivity();
-        RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.activity_find_game, container, false);
+        RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.fragment_find_game, container, false);
         athlete = (Athlete) getArguments().getSerializable("athlete");
         options = (ArrayList<Game>) getArguments().getSerializable("options");
         ListAdapter adapter = new MyAdapter(inflater.getContext(), options);

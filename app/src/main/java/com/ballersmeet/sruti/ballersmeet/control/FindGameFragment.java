@@ -1,6 +1,5 @@
 package com.ballersmeet.sruti.ballersmeet.control;
 
-import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -14,9 +13,6 @@ import com.ballersmeet.sruti.ballersmeet.R;
 import com.ballersmeet.sruti.ballersmeet.model.*;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.text.ParseException;
-import java.util.Date;
 import java.util.ArrayList;
 
 public class FindGameFragment extends Fragment {
@@ -29,7 +25,8 @@ public class FindGameFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         FragmentActivity faActivity  = (FragmentActivity) super.getActivity();
-        RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.activity_find_game, container, false);
+        RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.fragment_find_game, container, false);
+        search = (Button) rlLayout.findViewById(R.id.search);
         athlete = (Athlete) getArguments().getSerializable("athlete");
         options = (ArrayList<Game>) getArguments().getSerializable("options");
         return rlLayout;
@@ -39,7 +36,7 @@ public class FindGameFragment extends Fragment {
         this.main = main;
     }
 
-    public void handleSearch(View view) {
+    public void handleSearchClicked(View view) {
         Bundle bundle = new Bundle();
         bundle.putSerializable("athlete", (Serializable) athlete);
         bundle.putSerializable("options", (Serializable) options);
