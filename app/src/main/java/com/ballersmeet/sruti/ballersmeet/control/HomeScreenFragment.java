@@ -31,6 +31,7 @@ public class HomeScreenFragment extends Fragment implements OnItemClickListener 
     Athlete athlete;
     ArrayList<Game> games;
     TextView numTV;
+    ListView gamesLV;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,10 +40,10 @@ public class HomeScreenFragment extends Fragment implements OnItemClickListener 
         games = athlete.getGames();
         RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.activity_find_game, container, false);
         ListAdapter gameAdapter = new MyAdapter(super.getActivity(), games);
-        ListView games = (ListView) rlLayout.findViewById(R.id.gamesLV);
-        games.setClickable(true);
-        games.setAdapter(gameAdapter);
-        games.setOnItemClickListener(this);
+        gamesLV = (ListView) rlLayout.findViewById(R.id.gamesLV);
+        gamesLV.setClickable(true);
+        gamesLV.setAdapter(gameAdapter);
+        gamesLV.setOnItemClickListener(this);
         numTV = (TextView) rlLayout.findViewById(R.id.numTV);
         return rlLayout;
     }

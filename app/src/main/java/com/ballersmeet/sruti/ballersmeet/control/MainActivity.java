@@ -1,5 +1,8 @@
 package com.ballersmeet.sruti.ballersmeet.control;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
@@ -41,6 +44,13 @@ public class MainActivity extends FragmentActivity {
         searchBT = (ImageButton) findViewById(R.id.searchBT);
         createBT = (ImageButton) findViewById(R.id.createBT);
         fragment = (FrameLayout) findViewById(R.id.fragment);
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("athlete", (Serializable) athlete);
+        HomeScreenFragment home = new HomeScreenFragment();
+        home.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment, home).commit();
+
         games = new ArrayList<Game>();
         options = new ArrayList<Game>();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -78,6 +88,7 @@ public class MainActivity extends FragmentActivity {
         bundle.putSerializable("athlete", (Serializable) athlete);
         HomeScreenFragment home = new HomeScreenFragment();
         home.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment, home).commit();
     }
 
 
@@ -86,6 +97,7 @@ public class MainActivity extends FragmentActivity {
         bundle.putSerializable("athlete", (Serializable) athlete);
         HomeScreenFragment home = new HomeScreenFragment();
         home.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment, home).commit();
     }
 
     public void handleSearchClicked(View view) {
@@ -94,6 +106,8 @@ public class MainActivity extends FragmentActivity {
         bundle.putSerializable("options", (Serializable) options);
         FindGameFragment search = new FindGameFragment();
         search.setArguments(bundle);
+        search.setMain(this);
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment, search).commit();
     }
 
     public void handleCreateClicked(View view) {
@@ -101,6 +115,7 @@ public class MainActivity extends FragmentActivity {
         bundle.putSerializable("athlete", (Serializable) athlete);
         CreateGameFragment create = new CreateGameFragment();
         create.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment, create).commit();
 
     }
 
@@ -109,5 +124,10 @@ public class MainActivity extends FragmentActivity {
         bundle.putSerializable("athlete", (Serializable) athlete);
         ProfileFragment profile = new ProfileFragment();
         profile.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment, profile).commit();
+    }
+
+    public void setFragment(Fragment fragment) {
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment, fragment).commit();
     }
 }

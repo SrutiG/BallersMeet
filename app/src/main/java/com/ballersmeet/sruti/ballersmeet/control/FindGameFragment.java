@@ -22,6 +22,7 @@ public class FindGameFragment extends Fragment {
 
     Athlete athlete;
     ArrayList<Game> options;
+    MainActivity main;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -32,12 +33,17 @@ public class FindGameFragment extends Fragment {
         return rlLayout;
     }
 
+    public void setMain(MainActivity main) {
+        this.main = main;
+    }
+
     public void handleSearch(View view) {
         Bundle bundle = new Bundle();
         bundle.putSerializable("athlete", (Serializable) athlete);
         bundle.putSerializable("options", (Serializable) options);
         SearchGamesFragment search = new SearchGamesFragment();
         search.setArguments(bundle);
+        main.setFragment(search);
 
     }
 }

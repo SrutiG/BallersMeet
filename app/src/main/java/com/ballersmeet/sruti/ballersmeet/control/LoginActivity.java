@@ -37,10 +37,10 @@ public class LoginActivity extends AppCompatActivity {
         String username = user.getText().toString();
         String password = pass.getText().toString();
         if (password.equals("pass") && username.equals("user")) {
-            Intent homeView = new Intent(this, HomeScreenFragment.class);
+            Intent mainView = new Intent(this, MainActivity.class);
             Athlete athlete = new Athlete("Sruti", "Guhathakurta", "sruti@gatech.edu", username, password);
-            homeView.putExtra("athlete", (Serializable) athlete);
-            startActivity(homeView);
+            mainView.putExtra("athlete", (Serializable) athlete);
+            startActivity(mainView);
         } else {
             AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
             builder1.setMessage("Incorrect Username or Password");
