@@ -45,11 +45,6 @@ public class HomeScreenFragment extends ListFragment {
         setListAdapter(adapter);
         numTV = (TextView) rlLayout.findViewById(R.id.numTV);
         return super.onCreateView(inflater, container, savedInstanceState);
-        //ListAdapter gameAdapter = new MyAdapter(super.getActivity(), games);
-        //list = (ListView) rlLayout.findViewById(R.id.list);
-        //list.setClickable(true);
-        //list.setAdapter(gameAdapter);
-        //list.setOnItemClickListener(this);
     }
 
     @Override

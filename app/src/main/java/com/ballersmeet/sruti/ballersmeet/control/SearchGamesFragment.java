@@ -13,19 +13,21 @@ import android.widget.AdapterView.OnItemClickListener;
 
 import com.ballersmeet.sruti.ballersmeet.model.*;
 
-import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.support.v4.app.FragmentActivity;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.ballersmeet.sruti.ballersmeet.R;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class SearchGamesFragment extends Fragment implements OnItemClickListener {
+public class SearchGamesFragment extends ListFragment {
 
     ArrayList<Game> options;
     Athlete athlete;
+    ListView list;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -33,23 +35,19 @@ public class SearchGamesFragment extends Fragment implements OnItemClickListener
         RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.activity_find_game, container, false);
         athlete = (Athlete) getArguments().getSerializable("athlete");
         options = (ArrayList<Game>) getArguments().getSerializable("options");
-        ListAdapter gameAdapter = new MyAdapter(super.getActivity(), options);
-
-        ListView games = (ListView) rlLayout.findViewById(R.id.gamesLV);
-        games.setClickable(true);
-        games.setAdapter(gameAdapter);
-        games.setOnItemClickListener(this);
-        return rlLayout;
+        ListAdapter adapter = new MyAdapter(inflater.getContext(), options);
+        setListAdapter(adapter);
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Log.d("position", new Integer(i).toString());
+    public void onListItemClick(ListView l, View v, int i, long id) {
+        Log.d("position", new Integer(i).toString() );
         Game passGame = options.get(i);
-        Intent joinGame = new Intent(super.getActivity(), JoinGameActivity.class);
-        joinGame.putExtra("athlete", (Serializable) athlete);
-        joinGame.putExtra("game", (Serializable) passGame);
-        startActivity(joinGame);
+        Intent viewGame = new Intent(super.getActivity(), ViewGameActivity.class);
+        viewGame.putExtra("athlete", (Serializable) athlete);
+        viewGame.putExtra("game", (Serializable) passGame);
+        startActivity(viewGame);
 
     }
 }

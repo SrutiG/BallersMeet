@@ -57,7 +57,7 @@ public class CreateGameFragment extends Fragment implements OnMapReadyCallback, 
         //transaction.add(R.id.map, mapFragment ).commit();
         FragmentManager fm = getChildFragmentManager();
         SupportMapFragment mapFragment = (SupportMapFragment) fm.findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        //mapFragment.getMapAsync(this);
         date = new Date();
         CalendarView v = (CalendarView) rlLayout.findViewById(R.id.calendarView);
         v.setOnDateChangeListener( new CalendarView.OnDateChangeListener() {

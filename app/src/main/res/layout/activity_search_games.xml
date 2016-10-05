@@ -14,7 +14,7 @@
         android:padding="20dp"
         android:orientation="vertical">
         <ListView
-            android:id="@+id/gamesLV"
+            android:id="@+id/list"
             android:layout_width="wrap_content"
             android:layout_height="300dp"
             android:fillViewport="true"

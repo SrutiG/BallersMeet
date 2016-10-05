@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:id = "@+id/selection"
         android:layout_marginBottom="60dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="60dp"
         android:padding="0dp"
         android:orientation="vertical">
         <LinearLayout
@@ -26,14 +26,19 @@
                 android:text="User: "
                 android:textStyle="bold"
                 android:textSize="20sp"
+                android:padding="10dp"
                 android:gravity="right"
-                android:layout_width="150dp" />
+                android:layout_width="wrap_content"
+                android:layout_weight="1"/>
             <TextView
-                android:layout_width="250dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sruti7"
+                android:gravity="left"
+                android:padding="10dp"
                 android:id="@+id/userTV"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:layout_weight="1"/>
         </LinearLayout>
 
         <LinearLayout
@@ -44,17 +49,22 @@
 
             <TextView
                 android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
                 android:text="Skill Level: "
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:gravity="right"
-                android:layout_width="150dp" />
+                android:padding="10dp"
+                android:layout_weight="1"/>
             <TextView
-                android:layout_width="250dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="7 probably"
                 android:textSize="20sp"
-                android:id="@+id/skillTV"/>
+                android:id="@+id/skillTV"
+                android:padding="10dp"
+                android:gravity="left"
+                android:layout_weight="1"/>
 
         </LinearLayout>
     </LinearLayout>
