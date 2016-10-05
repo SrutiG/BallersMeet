@@ -10,11 +10,12 @@
     android:layout_marginBottom="20dp">
 
     <TextView
-        android:layout_width="10dp"
+        android:layout_width="20dp"
         android:layout_height="wrap_content"
         android:id="@+id/numTV"
         android:textStyle="bold"
         android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
         android:textColor="@color/wallet_holo_blue_light" />
     <TextView
         android:layout_width="200dp"

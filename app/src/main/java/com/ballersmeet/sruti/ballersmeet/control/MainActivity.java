@@ -29,7 +29,6 @@ public class MainActivity extends FragmentActivity {
 
 
     Athlete athlete;
-    ArrayList<Game> games;
     ImageButton homeBT, profileBT, searchBT, createBT;
     FrameLayout fragment;
     ArrayList<Game> options;
@@ -44,23 +43,9 @@ public class MainActivity extends FragmentActivity {
         searchBT = (ImageButton) findViewById(R.id.searchBT);
         createBT = (ImageButton) findViewById(R.id.createBT);
         fragment = (FrameLayout) findViewById(R.id.fragment);
-        games = new ArrayList<Game>();
         options = new ArrayList<Game>();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         try {
-            Date d_1 = sdf.parse("2016-09-27 13:30");
-            Date d_2 = sdf.parse("2016-09-27 15:00");
-            Date d_3 = sdf.parse("2016-09-27 17:15");
-            Date d_4 = sdf.parse("2016-09-26 13:00");
-            Date d_5 = sdf.parse("2016-09-26 16:00");
-            Location location_1 = new Location("CRC", "750 Ferst Dr NW", 30318, "Atlanta", "GA");
-            Location location_2 = new Location("North Ave Apts", "120 North Ave NW", 30313, "Atlanta", "GA");
-            Location location_3 = new Location("Klaus","266 Ferst Dr NW", 30332, "Atlanta", "GA");
-            games.add(new Game(4, d_1, location_1));
-            games.add(new Game(8, d_2, location_3));
-            games.add(new Game(6, d_3, location_2));
-            games.add(new Game(8, d_4, location_2));
-            games.add(new Game(4, d_5, location_1));
             Date d_6 = sdf.parse("2016-09-26 15:00");
             Date d_7 = sdf.parse("2016-09-26 16:00");
             Location location_4 = new Location("CRC", "750 Ferst Dr NW", 30318, "Atlanta", "GA");
@@ -68,8 +53,6 @@ public class MainActivity extends FragmentActivity {
             Game g2 = new Game(10, d_7, location_4);
             options.add(g1);
             options.add(g2);
-            athlete.setGames(games);
-
             Bundle bundle = new Bundle();
             bundle.putSerializable("athlete", (Serializable) athlete);
             HomeScreenFragment home = new HomeScreenFragment();
