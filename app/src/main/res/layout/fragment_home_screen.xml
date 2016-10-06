@@ -20,6 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Your Upcoming Games"
+            android:id="@+id/upcomingGames"
             android:layout_gravity="center"
             android:textSize="30sp"
             android:layout_marginBottom="10dp"/>
