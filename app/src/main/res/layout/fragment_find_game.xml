@@ -38,7 +38,7 @@
                     android:layout_marginBottom="20dp"/>
                 <CalendarView
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="500dp"
                     android:id="@+id/calendarView" />
                 <TextView
                     android:paddingLeft="10dp"
