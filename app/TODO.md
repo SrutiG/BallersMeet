@@ -7,9 +7,10 @@
 -find a way to make that set into an arraylist for the list adapter
 -add google maps to find game
 -make home and search scrollable
+-update our README.md file
 -database
 -profile picture option
 -edit profile
--find common theme/make prettier
+-find common theme/make prettier- make header smaller?
 -add friends
 -facebook
