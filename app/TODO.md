@@ -1,0 +1,10 @@
+-fix google maps
+-find out why xml and fragments aren't connecting
+-join game changes player count
+-change games to hashset or treeset (in order, implement comparable)
+-database
+-profile picture option
+-edit profile
+-find common theme/make prettier
+-add friends
+-facebook

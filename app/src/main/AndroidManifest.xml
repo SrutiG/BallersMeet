@@ -25,10 +25,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <fragment android:name=".control.HomeScreenFragment" />
-        <fragment android:name=".control.FindGameFragment" />
-        <fragment android:name=".control.ProfileFragment" />
-        <fragment android:name=".control.CreateGameFragment" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -46,7 +42,6 @@
             android:label="@string/title_activity_maps" />
         <activity android:name=".control.ViewGameActivity" />
         <activity android:name=".control.JoinGameActivity" />
-        <fragment android:name=".control.SearchGamesFragment" />
         <activity
             android:name=".control.GameAdded"
             android:label="@string/title_activity_game_added"
