@@ -44,13 +44,13 @@ public class CreateGameFragment extends Fragment implements OnMapReadyCallback, 
     private static final LatLng CRC = new LatLng(33.775915, -84.403926);
     private static final LatLng PETERS = new LatLng(33.775269, -84.393539);
     private static final LatLng PIKE = new LatLng(33.776774, -84.395269);
-    Button searchGames;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         FragmentActivity faActivity  = (FragmentActivity) super.getActivity();
         RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.fragment_create_game, container, false);
-        searchGames = (Button) rlLayout.findViewById(R.id.searchGames);
+        Button searchGames = (Button) rlLayout.findViewById(R.id.searchGames);
         searchGames.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,5 +1,4 @@
 -fix google maps
--find out why xml and fragments aren't connecting
 -make join game go back to search results NOT home
 -fix calendar in join game
 -join game changes player count
