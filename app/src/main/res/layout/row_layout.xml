@@ -1,43 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".control.HomeScreenFragment"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="1"
     android:gravity="center"
-    android:layout_marginTop="20dp"
-    android:layout_marginBottom="20dp">
+    android:layout_marginTop="50dp"
+    android:layout_marginBottom="50dp">
 
-    <TextView
-        android:layout_width="20dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/numTV"
-        android:textStyle="bold"
-        android:text="1"
-        android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
-        android:textSize="20sp"
-        android:textColor="@color/wallet_holo_blue_light" />
-    <TextView
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="location name"
-        android:textSize="20sp"
-        android:id="@+id/gameLocTV" />
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/numTV"
+            android:textStyle="bold"
+            android:text="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:textSize="20sp"
 
-    <TextView
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:text="date"
-        android:textSize="20sp"
-        android:id="@+id/dateTV"/>
-    <TextView
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:text="time"
-        android:textSize="20sp"
-        android:id="@+id/timeTV"/>
+            android:textColor="@color/wallet_holo_blue_light" />
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="location name"
+            android:textStyle="bold"
+            android:gravity="center|left"
+            android:textSize="18sp"
 
+            android:id="@+id/gameLocTV" />
+
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="date"
+            android:layout_marginRight="10dp"
+
+            android:gravity="center"
+            android:textSize="20sp"
+            android:id="@+id/dateTV"/>
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="time"
+            android:gravity="center"
+            android:textSize="20sp"
+
+            android:layout_marginRight="10dp"
+            android:id="@+id/timeTV"/>
 
 </LinearLayout>

@@ -47,7 +47,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         android:orientation="horizontal"
         android:gravity="center"
         android:layout_gravity="bottom"
@@ -72,7 +72,8 @@
                 android:layout_height="wrap_content"
                 android:text="Home"
                 android:textStyle="bold"
-                android:textColor="#333333"/>
+                android:textColor="#333333"
+                android:layout_marginBottom="5dp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="90dp"
@@ -93,7 +94,8 @@
                 android:layout_height="wrap_content"
                 android:text="Search"
                 android:textStyle="bold"
-                android:textColor="#333333"/>
+                android:textColor="#333333"
+                android:layout_marginBottom="5dp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="90dp"
@@ -114,7 +116,8 @@
                 android:layout_height="wrap_content"
                 android:text="Create"
                 android:textStyle="bold"
-                android:textColor="#333333"/>
+                android:textColor="#333333"
+                android:layout_marginBottom="5dp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="90dp"
@@ -135,7 +138,8 @@
                 android:layout_height="wrap_content"
                 android:text="Profile"
                 android:textStyle="bold"
-                android:textColor="#333333"/>
+                android:textColor="#333333"
+                android:layout_marginBottom="5dp"/>
         </LinearLayout>
 
 

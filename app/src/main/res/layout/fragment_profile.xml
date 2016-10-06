@@ -19,7 +19,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:weightSum="2">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/profilePic"/>
 
             <TextView
                 android:layout_height="wrap_content"
@@ -28,10 +34,10 @@
                 android:textSize="20sp"
                 android:padding="10dp"
                 android:gravity="right"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_weight="1"/>
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Sruti7"
                 android:gravity="left"
@@ -45,11 +51,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:weightSum="2">
 
             <TextView
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:text="Skill Level: "
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -57,7 +64,7 @@
                 android:padding="10dp"
                 android:layout_weight="1"/>
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="7 probably"
                 android:textSize="20sp"
@@ -67,6 +74,13 @@
                 android:layout_weight="1"/>
 
         </LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:id="@+id/logoutBT"/>
     </LinearLayout>
 
 </RelativeLayout>
