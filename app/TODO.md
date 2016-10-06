@@ -1,7 +1,12 @@
 -fix google maps
 -find out why xml and fragments aren't connecting
+-make join game go back to search results NOT home
+-fix calendar in join game
 -join game changes player count
 -change games to hashset or treeset (in order, implement comparable)
+-find a way to make that set into an arraylist for the list adapter
+-add google maps to find game
+-make home and search scrollable
 -database
 -profile picture option
 -edit profile
