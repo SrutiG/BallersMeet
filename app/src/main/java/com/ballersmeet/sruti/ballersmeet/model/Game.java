@@ -7,6 +7,7 @@ import com.google.android.gms.maps.model.Marker;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
 
 /**
  * Created by Anna on 9/24/2016.
@@ -14,26 +15,27 @@ import java.util.Date;
 public class Game implements Serializable{
     private int numplayers;
     private int size;
-    private Athlete[] players;
+    private HashSet<Athlete> players;
     private Date date;
     private Marker loc;
     Location location;
 
     public Game(int numplayers, Date date, Location location) {
         this.numplayers = numplayers;
-        players = new Athlete[numplayers];
+        players = new HashSet<>();
         this.location = location;
         this.date =  date;
     }
 
-    public String addPlayer(Athlete next) {
-        if (size == players.length) {
-            return("Game is full");
-        } else {
-            players[size] = next;
-            size++;
-            return ("Player added!");
+    public boolean addPlayer(Athlete next) {
+        if (size == numplayers) {
+            return false;
         }
+        if (players.add(next)) {
+                size++;
+                return true;
+        }
+        return false;
     }
 
     public void setGameTime(int hour, int minute) {
@@ -75,5 +77,12 @@ public class Game implements Serializable{
 
     public int getNumplayers() {
         return numplayers;
+    }
+
+    public boolean equals(Game game) {
+        if (this.date.equals(game.getDate()) && this.location.equals(game.getLocation())) {
+            return true;
+        }
+        return false;
     }
 }

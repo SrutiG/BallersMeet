@@ -46,6 +46,7 @@ public class JoinGameFragment extends Fragment {
         join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                game.addPlayer(athlete);
                 athlete.addGameQueue(game);
                 HomeScreenFragment homeScreen = new HomeScreenFragment();
                 Bundle bundle = new Bundle();
