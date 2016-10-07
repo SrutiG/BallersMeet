@@ -28,7 +28,7 @@ public class Game implements Serializable{
     }
 
     public boolean addPlayer(Athlete next) {
-        if (size == numplayers) {
+        if (isFull()) {
             return false;
         }
         if (players.add(next)) {
@@ -36,6 +36,10 @@ public class Game implements Serializable{
                 return true;
         }
         return false;
+    }
+
+    public boolean isFull() {
+        return size == numplayers;
     }
 
     public void setGameTime(int hour, int minute) {
