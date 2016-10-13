@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -91,10 +92,23 @@ public class CreateGameFragment extends Fragment implements OnMapReadyCallback, 
                 numPlayers = i2;
             }
         });
-
         return rlLayout;
     }
 
+    // This event is triggered soon after onCreateView().
+    // onViewCreated() is only called if the view returned from onCreateView() is non-null.
+    // Any view setup should occur here.  E.g., view lookups and attaching view listeners.
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        insertNestedFragment();
+    }
+
+    // Embeds the child fragment dynamically
+    private void insertNestedFragment() {
+        Fragment childFragment = new MapFragment();
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        transaction.replace(R.id.container, childFragment).commit();
+    }
 
     public void onMapReady(GoogleMap map) {
         mMap = map;
