@@ -21,7 +21,7 @@ public class GameAdded extends AppCompatActivity implements Serializable {
         super.onCreate(savedInstanceState);
         Game addedGame = (Game) getIntent().getExtras().getSerializable("game");
         athlete = (Athlete) getIntent().getExtras().getSerializable("athlete");
-        athlete.addGameQueue(addedGame);
+        athlete.addGame(addedGame);
         setContentView(R.layout.activity_game_added);
         try {
             TextView place = (TextView) findViewById(R.id.textView2);

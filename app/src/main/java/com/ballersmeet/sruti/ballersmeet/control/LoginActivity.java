@@ -20,6 +20,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -45,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         if (password.equals("pass") && username.equals("user")) {
             Intent mainView = new Intent(this, MainActivity.class);
             Athlete athlete = new Athlete("Sruti", "Guhathakurta", "sruti@gatech.edu", username, password);
-            ArrayList<Game> games = new ArrayList<>();
+            HashSet<Game> games = new HashSet<>();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
             try {
                 Date d_1 = sdf.parse("2016-09-27 13:30");

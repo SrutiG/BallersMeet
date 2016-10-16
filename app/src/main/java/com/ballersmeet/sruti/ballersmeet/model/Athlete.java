@@ -2,6 +2,7 @@ package com.ballersmeet.sruti.ballersmeet.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -17,7 +18,7 @@ public class Athlete implements Serializable {
     private int level;
     private String username;
     private String password;
-    private ArrayList<Game> gameQueue;
+    private HashSet<Game> gamesSet;
 
     public Athlete(String firstname, String lastname, String email, String username, String password) {
         this.firstname = firstname;
@@ -53,25 +54,26 @@ public class Athlete implements Serializable {
         return level;
     }
 
-    public ArrayList<Game> getGames() {
-        return gameQueue;
+    public HashSet<Game> getGames() {
+        return gamesSet;
     }
 
-    public void addGameQueue(Game game) {
-        if (gameQueue == null) {
-            gameQueue = new ArrayList<Game>();
-        }
-        gameQueue.add(game);
-    }
-
-    public void setGames(ArrayList<Game> games) {
-        gameQueue = games;
-    }
-
-    public boolean equals(Athlete athlete) {
-        if (this.username.equals(athlete.getUsername())) {
+    public boolean addGame(Game game) {
+        if (gamesSet.add(game)) {
             return true;
         }
         return false;
+    }
+
+    public void setGames(HashSet<Game> games) {
+        gamesSet = games;
+        for (Game g: gamesSet) {
+            g.addPlayer(this);
+        }
+    }
+
+    public ArrayList<Game> toArray() {
+        ArrayList<Game> gamesList = new ArrayList<>(gamesSet);
+        return gamesList;
     }
  }
