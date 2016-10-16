@@ -34,7 +34,7 @@ public class HomeScreenFragment extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         FragmentActivity faActivity  = (FragmentActivity) super.getActivity();
         athlete = (Athlete) getArguments().getSerializable("athlete");
-        games = athlete.getGames();
+        games = athlete.toArray();
         RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.fragment_home_screen, container, false);
         ListAdapter adapter = new MyAdapter(inflater.getContext(), games);
         setListAdapter(adapter);

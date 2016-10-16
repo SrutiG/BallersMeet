@@ -47,7 +47,7 @@ public class JoinGameFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 game.addPlayer(athlete);
-                athlete.addGameQueue(game);
+                athlete.addGame(game);
                 HomeScreenFragment homeScreen = new HomeScreenFragment();
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("athlete", (Serializable)athlete);
