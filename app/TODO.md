@@ -1,15 +1,14 @@
 -fix google maps
 -figure out whatever is up with home screen fragment xml
 -fix calendar in join game
--join game changes player count
--change games to hashset or treeset (in order, implement comparable)
--find a way to make that set into an arraylist for the list adapter
+-make games a treeset? (in order, implement comparable)
 -add google maps to find game
 -make home and search scrollable
+-database- go over schemas, implement SQLite Database
+-make a session manager (instead of passing a Serializable Athlete object)
 -update our README.md file
--database
 -profile picture option
 -edit profile
--find common theme/make prettier- make header smaller?
+-find common theme/make prettier- make header smaller? Material Design?
 -add friends
 -facebook

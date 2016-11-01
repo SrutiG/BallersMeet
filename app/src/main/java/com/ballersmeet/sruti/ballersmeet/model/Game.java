@@ -83,10 +83,4 @@ public class Game implements Serializable{
         return numplayers;
     }
 
-    public boolean equals(Game game) {
-        if (this.date.equals(game.getDate()) && this.location.equals(game.getLocation())) {
-            return true;
-        }
-        return false;
-    }
 }
