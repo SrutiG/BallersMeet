@@ -1,5 +1,5 @@
 -fix google maps
--make join game go back to search results NOT home
+-figure out whatever is up with home screen fragment xml
 -fix calendar in join game
 -join game changes player count
 -change games to hashset or treeset (in order, implement comparable)

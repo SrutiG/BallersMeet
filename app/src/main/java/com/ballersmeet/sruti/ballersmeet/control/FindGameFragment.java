@@ -34,6 +34,7 @@ public class FindGameFragment extends Fragment {
                 bundle.putSerializable("athlete", (Serializable) athlete);
                 bundle.putSerializable("options", (Serializable) options);
                 SearchGamesFragment search = new SearchGamesFragment();
+                search.setMain(main);
                 search.setArguments(bundle);
                 main.setFragment(search);
             }
@@ -45,15 +46,5 @@ public class FindGameFragment extends Fragment {
 
     public void setMain(MainActivity main) {
         this.main = main;
-    }
-
-    public void handleSearchClicked(View view) {
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("athlete", (Serializable) athlete);
-        bundle.putSerializable("options", (Serializable) options);
-        SearchGamesFragment search = new SearchGamesFragment();
-        search.setArguments(bundle);
-        main.setFragment(search);
-
     }
 }

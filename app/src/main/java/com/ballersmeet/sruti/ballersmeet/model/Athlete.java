@@ -66,4 +66,11 @@ public class Athlete implements Serializable {
     public void setGames(ArrayList<Game> games) {
         gameQueue = games;
     }
-}
+
+    public boolean equals(Athlete athlete) {
+        if (this.username.equals(athlete.getUsername())) {
+            return true;
+        }
+        return false;
+    }
+ }

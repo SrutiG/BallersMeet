@@ -57,6 +57,7 @@ public class MainActivity extends FragmentActivity {
             bundle.putSerializable("athlete", (Serializable) athlete);
             HomeScreenFragment home = new HomeScreenFragment();
             home.setArguments(bundle);
+            home.setMain(this);
             getSupportFragmentManager().beginTransaction().add(R.id.fragment, home).commit();
 
         } catch (ParseException e) {
@@ -79,6 +80,7 @@ public class MainActivity extends FragmentActivity {
         bundle.putSerializable("athlete", (Serializable) athlete);
         HomeScreenFragment home = new HomeScreenFragment();
         home.setArguments(bundle);
+        home.setMain(this);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment, home).commit();
     }
 

@@ -28,6 +28,7 @@ public class HomeScreenFragment extends ListFragment {
     ArrayList<Game> games;
     TextView numTV;
     ListView list;
+    MainActivity main;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,15 +42,21 @@ public class HomeScreenFragment extends ListFragment {
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
+    public void setMain(MainActivity main) {
+        this.main = main;
+    }
+
     @Override
     public void onListItemClick(ListView l, View v, int i, long id) {
         Log.d("position", new Integer(i).toString() );
         Game passGame = games.get(i);
-        Intent viewGame = new Intent(super.getActivity(), ViewGameActivity.class);
-        viewGame.putExtra("athlete", (Serializable) athlete);
-        viewGame.putExtra("game", (Serializable) passGame);
-        startActivity(viewGame);
-
+        ViewGameFragment viewGame = new ViewGameFragment();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("athlete", (Serializable) athlete);
+        bundle.putSerializable("game", (Serializable) passGame);
+        viewGame.setArguments(bundle);
+        viewGame.setMain(main);
+        main.setFragment(viewGame);
     }
 
 }

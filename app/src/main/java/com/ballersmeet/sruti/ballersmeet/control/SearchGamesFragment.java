@@ -25,6 +25,7 @@ public class SearchGamesFragment extends ListFragment {
     ArrayList<Game> options;
     Athlete athlete;
     ListView list;
+    MainActivity main;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,10 +42,19 @@ public class SearchGamesFragment extends ListFragment {
     public void onListItemClick(ListView l, View v, int i, long id) {
         Log.d("position", new Integer(i).toString() );
         Game passGame = options.get(i);
-        Intent joinGame = new Intent(super.getActivity(), JoinGameActivity.class);
-        joinGame.putExtra("athlete", (Serializable) athlete);
-        joinGame.putExtra("game", (Serializable) passGame);
-        startActivity(joinGame);
+        JoinGameFragment joinGame = new JoinGameFragment();
+        Bundle bundle = new Bundle();
+        Intent joinGameInt = new Intent(super.getActivity(), joinGame.getClass());
+        bundle.putSerializable("athlete", (Serializable) athlete);
+        bundle.putSerializable("game", (Serializable) passGame);
+        bundle.putSerializable("options", (Serializable) options);
+        joinGame.setArguments(bundle);
+        joinGame.setMain(main);
+        main.setFragment(joinGame);
 
+    }
+
+    public void setMain(MainActivity main) {
+        this.main = main;
     }
 }
