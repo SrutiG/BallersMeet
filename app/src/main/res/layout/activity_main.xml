@@ -49,7 +49,7 @@
         android:orientation="horizontal"
         android:gravity="center"
         android:layout_alignParentBottom="true"
-        android:background="#6099FF"
+        android:background="@color/nav"
         android:elevation="3dp">
         <LinearLayout
             android:layout_width="90dp"
@@ -62,7 +62,7 @@
                 android:layout_height="40dp"
                 android:id="@+id/homeBT"
                 android:onClick="handleHomeClicked"
-                android:background="#6099FF"
+                android:background="@color/nav"
                 android:src="@drawable/ic_home"
                 android:scaleType="fitCenter"/>
 
@@ -78,7 +78,7 @@
                 android:layout_height="40dp"
                 android:id="@+id/searchBT"
                 android:onClick="handleSearchClicked"
-                android:background="#6099FF"
+                android:background="@color/nav"
                 android:src="@drawable/ic_search"
                 android:scaleType="fitCenter"/>
         </LinearLayout>
@@ -93,8 +93,8 @@
                 android:layout_height="40dp"
                 android:id="@+id/createBT"
                 android:onClick="handleCreateClicked"
-                android:background="#6099FF"
-                android:src="@drawable/ic_plus"
+                android:background="@color/nav"
+                android:src="@drawable/ic_create"
                 android:scaleType="fitCenter"/>
         </LinearLayout>
         <LinearLayout
@@ -108,7 +108,7 @@
                 android:layout_height="40dp"
                 android:id="@+id/profileBT"
                 android:onClick="handleProfileClicked"
-                android:background="#6099FF"
+                android:background="@color/nav"
                 android:src="@drawable/ic_profile"
                 android:scaleType="fitCenter"/>
         </LinearLayout>
