@@ -19,6 +19,23 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String KEY_USERNAME = "username";
     private static final String KEY_PASSWORD = "password";
 
+    private static final String TABLE_GAMES = "games";
+    private static final String KEY_LOCATION = "location";
+    private static final String KEY_DATE = "date";
+    private static final String KEY_CAPACITY = "capacity";
+    private static final String KEY_NUM_PLAYERS = "num_players";
+
+    private static final String TABLE_LOCATIONS = "locations";
+    private static final String KEY_NAME = "name";
+    private static final String KEY_ADDRESS = "address";
+    private static final String KEY_CITY = "city";
+    private static final String KEY_STATE = "state";
+    private static final String KEY_ZIP = "zip";
+
+    private static final String TABLE_PARTICIPATION = "participation";
+    private static final String KEY_ATHLETE = "username";
+    private static final String KEY_GAME = "location";
+
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -28,7 +45,16 @@ public class DBHandler extends SQLiteOpenHelper {
         + KEY_FIRSTNAME + " TEXT," + KEY_LASTNAME + " TEXT,"
         + KEY_EMAIL + " TEXT," + KEY_LEVEL + " INTEGER," + KEY_USERNAME + " TEXT PRIMARY KEY," +
                 KEY_PASSWORD + " TEXT" + ")";
+        String CREATE_GAMES_TABLE = "CREATE TABLE " + TABLE_GAMES + "(" + KEY_LOCATION + " TEXT, " + KEY_DATE + " TEXT, "
+                + KEY_CAPACITY + " TEXT, " + KEY_NUM_PLAYERS + " TEXT + PRIMARY KEY(" + KEY_LOCATION + ", " + KEY_CAPACITY + ")";
+        String CREATE_LOCATIONS_TABLE = "CREATE TABLE " + TABLE_LOCATIONS + "(" + KEY_NAME + " TEXT PRIMARY KEY," + KEY_ADDRESS + " TEXT," +
+                KEY_STATE + " TEXT," + KEY_CITY + " TEXT," + KEY_STATE + " TEXT," + KEY_ZIP + " TEXT)";
+        String CREATE_PARTICIPATION_TABLE = "CREATE TABLE " + TABLE_PARTICIPATION + "(" + KEY_ATHLETE + " TEXT," +
+                KEY_GAME + " TEXT, PRIMARY KEY(" + KEY_ATHLETE + ", " + KEY_GAME + ")";
         db.execSQL(CREATE_ATHLETES_TABLE);
+        db.execSQL(CREATE_GAMES_TABLE);
+        db.execSQL(CREATE_LOCATIONS_TABLE);
+        db.execSQL(CREATE_PARTICIPATION_TABLE);
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

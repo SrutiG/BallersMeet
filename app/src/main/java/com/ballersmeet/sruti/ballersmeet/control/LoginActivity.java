@@ -1,7 +1,10 @@
 package com.ballersmeet.sruti.ballersmeet.control;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,8 +24,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Set;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends Activity {
 
     EditText user;
     EditText pass;
@@ -45,6 +49,11 @@ public class LoginActivity extends AppCompatActivity {
         String password = pass.getText().toString();
         if (password.equals("pass") && username.equals("user")) {
             Intent mainView = new Intent(this, MainActivity.class);
+            SharedPreferences sp = getSharedPreferences("sharedPreferences", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putBoolean("login", true);
+            Set<String> Athlete = new HashSet<String>();
+            editor.putString("athlete", username);
             Athlete athlete = new Athlete("Sruti", "Guhathakurta", "sruti@gatech.edu", username, password);
             HashSet<Game> games = new HashSet<>();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");

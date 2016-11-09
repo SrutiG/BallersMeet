@@ -44,6 +44,7 @@ public class MainActivity extends FragmentActivity {
         createBT = (ImageButton) findViewById(R.id.createBT);
         fragment = (FrameLayout) findViewById(R.id.fragment);
         options = new ArrayList<Game>();
+
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         try {
             Date d_6 = sdf.parse("2016-09-26 15:00");
