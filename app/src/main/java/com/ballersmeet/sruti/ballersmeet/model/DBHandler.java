@@ -1,5 +1,6 @@
 package com.ballersmeet.sruti.ballersmeet.model;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -69,5 +70,20 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_LOCATIONS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PARTICIPATION);
         onCreate(db);
+    }
+
+    public void addAthlete(Athlete athlete) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_FIRSTNAME, athlete.getFirstName());
+        values.put(KEY_LASTNAME, athlete.getLastName());
+        values.put(KEY_EMAIL, athlete.getEmail());
+        values.put(KEY_USERNAME, athlete.getUsername());
+        db.insert(TABLE_ATHLETES, null, values);
+        db.close();
+    }
+
+    public void getAthletebyUsername(String username) {
+        SQLiteDatabase db = this.getReadableDatabase();
     }
 }
