@@ -50,6 +50,8 @@ public class Athlete implements Serializable {
         return username;
     }
 
+    public String getEmail() { return email; }
+
     public int getLevel() {
         return level;
     }
