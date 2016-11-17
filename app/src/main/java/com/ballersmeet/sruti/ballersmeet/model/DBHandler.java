@@ -57,13 +57,13 @@ public class DBHandler extends SQLiteOpenHelper {
         + KEY_FIRSTNAME + " TEXT," + KEY_LASTNAME + " TEXT,"
         + KEY_EMAIL + " TEXT," + KEY_LEVEL + " INTEGER," + KEY_USERNAME + " TEXT PRIMARY KEY," +
                 KEY_PASSWORD + " TEXT" + ")";
-        String CREATE_GAMES_TABLE = "CREATE TABLE " + TABLE_GAMES + "("  + KEY_GAME + " TEXT AUTOINCREMENT, "+ KEY_LOCATION + " TEXT, " + KEY_DATE + " TEXT, "
-                + KEY_CAPACITY + " TEXT, " + KEY_NUM_PLAYERS + " TEXT, PRIMARY KEY " + KEY_GAME + ", FOREIGN KEY(" + KEY_LOCATION +
+        String CREATE_GAMES_TABLE = "CREATE TABLE " + TABLE_GAMES + "("  + KEY_GAME + " TEXT PRIMARY KEY, "+ KEY_LOCATION + " TEXT, " + KEY_DATE + " TEXT, "
+                + KEY_CAPACITY + " TEXT, " + KEY_NUM_PLAYERS + " TEXT, FOREIGN KEY(" + KEY_LOCATION +
                 ") REFERENCES " + TABLE_LOCATIONS + "(" + KEY_NAME + "))";
-        String CREATE_LOCATIONS_TABLE = "CREATE TABLE " + TABLE_LOCATIONS + "(" + KEY_NAME + " TEXT, " + KEY_ADDRESS + " TEXT," +
-                KEY_STATE + " TEXT," + KEY_CITY + " TEXT," + KEY_ZIP + " TEXT, " + KEY_LAT + " TEXT, "
+        String CREATE_LOCATIONS_TABLE = "CREATE TABLE " + TABLE_LOCATIONS + "(" + KEY_NAME + " TEXT, " + KEY_ADDRESS + " TEXT, " +
+                KEY_STATE + " TEXT, " + KEY_CITY + " TEXT, " + KEY_ZIP + " TEXT, " + KEY_LAT + " TEXT, "
                 + KEY_LONG + " TEXT, PRIMARY KEY(" + KEY_ATHLETE + ", " + KEY_GAME + "))";
-        String CREATE_PARTICIPATION_TABLE = "CREATE TABLE " + TABLE_PARTICIPATION + "(" + KEY_ATHLETE + " TEXT," +
+        String CREATE_PARTICIPATION_TABLE = "CREATE TABLE " + TABLE_PARTICIPATION + "(" + KEY_ATHLETE + " TEXT, " +
                 KEY_GAME + " TEXT, PRIMARY KEY(" + KEY_ATHLETE + ", " + KEY_GAME + ") FOREIGN KEY(" + KEY_GAME +
                 ") REFERENCES " + TABLE_GAMES + "(" + KEY_GAME + "), FOREIGN KEY(" + KEY_ATHLETE +
                 ") REFERENCES " + TABLE_ATHLETES + "(" + KEY_USERNAME + "))";
