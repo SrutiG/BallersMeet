@@ -2,8 +2,17 @@ package com.ballersmeet.sruti.ballersmeet.model;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Date;
+
+import static android.R.attr.id;
+import static android.provider.Contacts.SettingsColumns.KEY;
+import static com.ballersmeet.sruti.ballersmeet.R.id.username;
 
 /**
  * Created by Sruti on 10/16/16.
@@ -49,10 +58,10 @@ public class DBHandler extends SQLiteOpenHelper {
         + KEY_EMAIL + " TEXT," + KEY_LEVEL + " INTEGER," + KEY_USERNAME + " TEXT PRIMARY KEY," +
                 KEY_PASSWORD + " TEXT" + ")";
         String CREATE_GAMES_TABLE = "CREATE TABLE " + TABLE_GAMES + "("  + KEY_GAME + " TEXT AUTOINCREMENT, "+ KEY_LOCATION + " TEXT, " + KEY_DATE + " TEXT, "
-                + KEY_CAPACITY + " TEXT, " + KEY_NUM_PLAYERS + " TEXT + PRIMARY KEY " + KEY_GAME + ", FOREIGN KEY(" + KEY_LOCATION +
+                + KEY_CAPACITY + " TEXT, " + KEY_NUM_PLAYERS + " TEXT, PRIMARY KEY " + KEY_GAME + ", FOREIGN KEY(" + KEY_LOCATION +
                 ") REFERENCES " + TABLE_LOCATIONS + "(" + KEY_NAME + "))";
         String CREATE_LOCATIONS_TABLE = "CREATE TABLE " + TABLE_LOCATIONS + "(" + KEY_NAME + " TEXT, " + KEY_ADDRESS + " TEXT," +
-                KEY_STATE + " TEXT," + KEY_CITY + " TEXT," + KEY_STATE + " TEXT, " + KEY_ZIP + " TEXT, " + KEY_LAT + " TEXT, "
+                KEY_STATE + " TEXT," + KEY_CITY + " TEXT," + KEY_ZIP + " TEXT, " + KEY_LAT + " TEXT, "
                 + KEY_LONG + " TEXT, PRIMARY KEY(" + KEY_ATHLETE + ", " + KEY_GAME + "))";
         String CREATE_PARTICIPATION_TABLE = "CREATE TABLE " + TABLE_PARTICIPATION + "(" + KEY_ATHLETE + " TEXT," +
                 KEY_GAME + " TEXT, PRIMARY KEY(" + KEY_ATHLETE + ", " + KEY_GAME + ") FOREIGN KEY(" + KEY_GAME +
@@ -117,7 +126,53 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void getAthletebyUsername(String username) {
+    public Athlete getAthletebyUsername(String username) {
         SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_ATHLETES, new String[] { KEY_FIRSTNAME,
+                        KEY_LASTNAME, KEY_EMAIL }, KEY_USERNAME + "=?",
+                new String[] { String.valueOf(username) }, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+        Athlete athlete = new Athlete(cursor.getString(0),
+                cursor.getString(1), cursor.getString(2), username, cursor.getString(3));
+        return athlete;
+    }
+
+    public List<Game> getAthleteGames(String username) {
+        List<Game> games = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_PARTICIPATION, new String[] {KEY_GAME}, KEY_ATHLETE + "=?",
+                new String[] { String.valueOf(username) }, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+        while (cursor.moveToNext()) {
+            Game game = getGame(Integer.parseInt(cursor.getString(0)));
+            games.add(game);
+        }
+        return games;
+    }
+
+    public Game getGame(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_GAMES, new String[] { KEY_GAME,
+                        KEY_LOCATION, KEY_DATE, KEY_CAPACITY, KEY_NUM_PLAYERS }, KEY_GAME + "=?",
+                new String[] { String.valueOf(id) }, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+        Game game = new Game(Integer.parseInt(cursor.getString(4)),
+                new Date(cursor.getString(2)), getLocation(cursor.getString(1)));
+        return game;
+    }
+
+    public Location getLocation(String name) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_LOCATIONS, new String[] { KEY_NAME,
+                        KEY_ADDRESS, KEY_STATE, KEY_CITY, KEY_ZIP, KEY_LAT, KEY_LONG }, KEY_NAME + "=?",
+                new String[] { String.valueOf(name) }, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+        Location location = new Location(cursor.getString(0),
+                cursor.getString(1), Integer.parseInt(cursor.getString(4)), cursor.getString(3), cursor.getString(2), cursor.getString(5), cursor.getString(6));
+        return location;
     }
 }
