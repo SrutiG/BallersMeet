@@ -83,6 +83,40 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void addGame(Game game) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_LOCATION, game.getLocation().getName());
+        values.put(KEY_DATE, game.getDate().toString());
+        values.put(KEY_CAPACITY, game.getCapacity());
+        values.put(KEY_NUM_PLAYERS, game.getNumplayers());
+        db.insert(TABLE_GAMES, null, values);
+        db.close();
+    }
+
+    public void addLocation(Location location) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_NAME, location.getName());
+        values.put(KEY_ADDRESS, location.getAddress());
+        values.put(KEY_CITY, location.getCity());
+        values.put(KEY_STATE, location.getState());
+        values.put(KEY_ZIP, location.getZip());
+        values.put(KEY_LAT, location.getLatitude());
+        values.put(KEY_LONG, location.getLongitude());
+        db.insert(TABLE_LOCATIONS, null, values);
+        db.close();
+    }
+
+    public void addParticipant(String username, int gameid) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_USERNAME, username);
+        values.put(KEY_GAME, gameid);
+        db.insert(TABLE_PARTICIPATION, null, values);
+        db.close();
+    }
+
     public void getAthletebyUsername(String username) {
         SQLiteDatabase db = this.getReadableDatabase();
     }

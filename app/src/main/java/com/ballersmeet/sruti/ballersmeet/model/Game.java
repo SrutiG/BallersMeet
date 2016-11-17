@@ -14,14 +14,14 @@ import java.util.HashSet;
  */
 public class Game implements Serializable{
     private int numplayers;
-    private int size;
+    private int capacity;
     private HashSet<Athlete> players;
     private Date date;
     private Marker loc;
-    Location location;
+    private Location location;
 
-    public Game(int numplayers, Date date, Location location) {
-        this.numplayers = numplayers;
+    public Game(int capacity, Date date, Location location) {
+        this.capacity = capacity;
         players = new HashSet<>();
         this.location = location;
         this.date =  date;
@@ -32,14 +32,14 @@ public class Game implements Serializable{
             return false;
         }
         if (players.add(next)) {
-                size++;
+                numplayers++;
                 return true;
         }
         return false;
     }
 
     public boolean isFull() {
-        return size == numplayers;
+        return capacity == numplayers;
     }
 
     public void setGameTime(int hour, int minute) {
@@ -75,8 +75,8 @@ public class Game implements Serializable{
         return time;
     }
 
-    public int getSize(){
-        return size;
+    public int getCapacity(){
+        return capacity;
     }
 
     public int getNumplayers() {
