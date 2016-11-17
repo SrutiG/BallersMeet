@@ -88,6 +88,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_LASTNAME, athlete.getLastName());
         values.put(KEY_EMAIL, athlete.getEmail());
         values.put(KEY_USERNAME, athlete.getUsername());
+        values.put(KEY_PASSWORD, athlete.getUsername());
         db.insert(TABLE_ATHLETES, null, values);
         db.close();
     }
