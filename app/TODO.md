@@ -1,0 +1,14 @@
+-fix google maps
+-figure out whatever is up with home screen fragment xml
+-fix calendar in join game
+-make games a treeset? (in order, implement comparable)
+-add google maps to find game
+-make home and search scrollable
+-database- go over schemas, implement SQLite Database
+-make a session manager (instead of passing a Serializable Athlete object)
+-update our README.md file
+-profile picture option
+-edit profile
+-find common theme/make prettier- make header smaller? Material Design?
+-add friends
+-facebook

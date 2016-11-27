@@ -7,33 +7,39 @@ import com.google.android.gms.maps.model.Marker;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
 
 /**
  * Created by Anna on 9/24/2016.
  */
 public class Game implements Serializable{
     private int numplayers;
-    private int size;
-    private Athlete[] players;
+    private int capacity;
+    private HashSet<Athlete> players;
     private Date date;
     private Marker loc;
-    Location location;
+    private Location location;
 
-    public Game(int numplayers, Date date, Location location) {
-        this.numplayers = numplayers;
-        players = new Athlete[numplayers];
+    public Game(int capacity, Date date, Location location) {
+        this.capacity = capacity;
+        players = new HashSet<>();
         this.location = location;
         this.date =  date;
     }
 
-    public String addPlayer(Athlete next) {
-        if (size == players.length) {
-            return("Game is full");
-        } else {
-            players[size] = next;
-            size++;
-            return ("Player added!");
+    public boolean addPlayer(Athlete next) {
+        if (isFull()) {
+            return false;
         }
+        if (players.add(next)) {
+                numplayers++;
+                return true;
+        }
+        return false;
+    }
+
+    public boolean isFull() {
+        return capacity == numplayers;
     }
 
     public void setGameTime(int hour, int minute) {
@@ -69,11 +75,12 @@ public class Game implements Serializable{
         return time;
     }
 
-    public int getSize(){
-        return size;
+    public int getCapacity(){
+        return capacity;
     }
 
     public int getNumplayers() {
         return numplayers;
     }
+
 }
