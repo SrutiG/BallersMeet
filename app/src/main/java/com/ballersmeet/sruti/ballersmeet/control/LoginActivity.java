@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteException;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -48,10 +49,14 @@ public class LoginActivity extends Activity {
 
         String username = user.getText().toString();
         String password = pass.getText().toString();
-        DBHandler dbhandler = new DBHandler(this);
-        Athlete athlete = dbhandler.getAthletebyUsername(username);
-        if (athlete != null) {
-            if (athlete.getPassword() == password) {
+        DBHandler dbhandler = new DBHandler(getApplicationContext());
+        try {
+            Athlete athlete = dbhandler.getAthletebyUsername(username);
+            System.out.println(athlete);
+            System.out.println(athlete.getUsername());
+            System.out.println(athlete.getEmail());
+            System.out.println(athlete.getPassword());
+            if (athlete.getPassword() != null && athlete.getPassword().equals(password)) {
                 Intent mainView = new Intent(this, MainActivity.class);
                 SharedPreferences sp = getSharedPreferences("sharedPreferences", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sp.edit();
@@ -67,8 +72,8 @@ public class LoginActivity extends Activity {
                     Date d_4 = sdf.parse("2016-09-26 13:00");
                     Date d_5 = sdf.parse("2016-09-26 16:00");
                     Location location_1 = new Location("CRC", "750 Ferst Dr NW", 30318, "Atlanta", "GA", "33", "-84");
-                    Location location_2 = new Location("North Ave Apts", "120 North Ave NW", 30313, "Atlanta", "GA",  "33", "-84.5");
-                    Location location_3 = new Location("Klaus", "266 Ferst Dr NW", 30332, "Atlanta", "GA",  "33", "-84.4");
+                    Location location_2 = new Location("North Ave Apts", "120 North Ave NW", 30313, "Atlanta", "GA", "33", "-84.5");
+                    Location location_3 = new Location("Klaus", "266 Ferst Dr NW", 30332, "Atlanta", "GA", "33", "-84.4");
                     games.add(new Game(4, d_1, location_1));
                     games.add(new Game(8, d_2, location_3));
                     games.add(new Game(6, d_3, location_2));
@@ -79,21 +84,37 @@ public class LoginActivity extends Activity {
                     startActivity(mainView);
                 } catch (ParseException e) {
                     e.printStackTrace();
+
                 }
+            } else{
+//                AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+//                builder1.setMessage("Incorrect Password");
+//                builder1.setCancelable(true);
+//                builder1.setPositiveButton(
+//                        "Okay",
+//                        new DialogInterface.OnClickListener() {
+//                            public void onClick(DialogInterface dialog, int id) {
+//                                dialog.cancel();
+//                            }
+//                        });
+//                AlertDialog alert11 = builder1.create();
+//                alert11.show();
+                System.out.println("Wrong password");
             }
-        } else {
-            AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-            builder1.setMessage("Incorrect Username or Password");
-            builder1.setCancelable(true);
-            builder1.setPositiveButton(
-                    "Okay",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-                        }
-                    });
-            AlertDialog alert11 = builder1.create();
-            alert11.show();
+        } catch (SQLiteException e) {
+//            AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+//            builder1.setMessage("Username does not exist");
+//            builder1.setCancelable(true);
+//            builder1.setPositiveButton(
+//                    "Okay",
+//                    new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int id) {
+//                            dialog.cancel();
+//                        }
+//                    });
+//            AlertDialog alert11 = builder1.create();
+//            alert11.show();
+            System.out.println("User doesn't exist");
         }
     }
 

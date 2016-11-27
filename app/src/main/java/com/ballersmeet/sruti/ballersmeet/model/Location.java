@@ -55,4 +55,6 @@ public class Location implements Serializable {
     public String getLongitude() {
         return longitude;
     }
+
+    public String toString() { return name; }
 }

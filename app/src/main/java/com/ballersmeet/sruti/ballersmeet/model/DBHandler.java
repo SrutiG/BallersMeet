@@ -62,7 +62,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 ") REFERENCES " + TABLE_LOCATIONS + "(" + KEY_NAME + "))";
         String CREATE_LOCATIONS_TABLE = "CREATE TABLE " + TABLE_LOCATIONS + "(" + KEY_NAME + " TEXT, " + KEY_ADDRESS + " TEXT, " +
                 KEY_STATE + " TEXT, " + KEY_CITY + " TEXT, " + KEY_ZIP + " TEXT, " + KEY_LAT + " TEXT, "
-                + KEY_LONG + " TEXT, PRIMARY KEY(" + KEY_ATHLETE + ", " + KEY_GAME + "))";
+                + KEY_LONG + " TEXT, PRIMARY KEY(" + KEY_NAME + "))";
         String CREATE_PARTICIPATION_TABLE = "CREATE TABLE " + TABLE_PARTICIPATION + "(" + KEY_ATHLETE + " TEXT, " +
                 KEY_GAME + " TEXT, PRIMARY KEY(" + KEY_ATHLETE + ", " + KEY_GAME + ") FOREIGN KEY(" + KEY_GAME +
                 ") REFERENCES " + TABLE_GAMES + "(" + KEY_GAME + "), FOREIGN KEY(" + KEY_ATHLETE +
@@ -88,7 +88,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_LASTNAME, athlete.getLastName());
         values.put(KEY_EMAIL, athlete.getEmail());
         values.put(KEY_USERNAME, athlete.getUsername());
-        values.put(KEY_PASSWORD, athlete.getUsername());
+        values.put(KEY_PASSWORD, athlete.getPassword());
         db.insert(TABLE_ATHLETES, null, values);
         db.close();
     }
@@ -129,13 +129,12 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public Athlete getAthletebyUsername(String username) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_ATHLETES, new String[] { KEY_FIRSTNAME,
-                        KEY_LASTNAME, KEY_EMAIL }, KEY_USERNAME + "=?",
-                new String[] { String.valueOf(username) }, null, null, null, null);
+        String selectQuery = "SELECT * FROM " + TABLE_ATHLETES + " WHERE " + KEY_USERNAME + " = '" + username + "';";
+        Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor != null)
             cursor.moveToFirst();
         Athlete athlete = new Athlete(cursor.getString(0),
-                cursor.getString(1), cursor.getString(2), username, cursor.getString(3));
+                cursor.getString(1), cursor.getString(2), username, cursor.getString(5));
         return athlete;
     }
 

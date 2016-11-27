@@ -46,7 +46,7 @@ public class RegisterActivity extends Activity {
         String emailAddress = email.getText().toString();
         String password = pw.getText().toString();
         Athlete athlete = new Athlete(firstName, lastName, emailAddress, username, password);
-        DBHandler db = new DBHandler(this);
+        DBHandler db = new DBHandler(getApplicationContext());
         db.addAthlete(athlete);
         athlete.setGames(new HashSet<Game>());
         Intent mainView = new Intent(this, MainActivity.class);
