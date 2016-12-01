@@ -60,17 +60,25 @@ public class CreateGameFragment extends Fragment implements OnMapReadyCallback, 
         cal = (CalendarView) rlLayout.findViewById(R.id.calendarView);
         timePicker = (TimePicker) rlLayout.findViewById(R.id.timePicker);
         numberPicker = (NumberPicker) rlLayout.findViewById(R.id.numberPicker);
-        /*searchGames.setOnClickListener(new View.OnClickListener() {
+        Button createGames = (Button) rlLayout.findViewById(R.id.searchGames);
+        createGames.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View view) {
                 Location gameloc = new Location(loc.getTitle(), loc.getPosition().toString());
-                Game newGame = new Game(6, date, gameloc);
-                Intent added = new Intent(getActivity(), GameAdded.class);
-                added.putExtra("game", (Serializable) newGame);
-                added.putExtra("athlete", (Serializable) athlete);
-                startActivity(added);
+                long selectedDate = cal.getDate();
+                int hour = timePicker.getHour();
+                int minute = timePicker.getMinute();
+                int capacity = numberPicker.getValue();
+                Date date = new Date(selectedDate);
+                date.setHours(hour);
+                date.setMinutes(minute);
+                Game newGame = new Game(capacity, date, gameloc);
+                newGame.addPlayer(athlete);
+                DBHandler dbhandler = new DBHandler(getContext());
+                dbhandler.addGame(newGame);
             }
-        });*/
+        });
         athlete = (Athlete) getArguments().getSerializable("athlete");
         //MapFragment mapFragment = new MapFragment();
         //FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
