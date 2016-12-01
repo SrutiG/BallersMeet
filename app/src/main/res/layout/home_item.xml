@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:id="@+id/game_view"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="@dimen/activity_vertical_margin">
+        <ImageButton
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@drawable/ballerz_meet"
+            android:id="@+id/cool_logo"
+            android:layout_margin="10dp"
+            android:scaleType="fitCenter"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Location Name"
+                    android:id="@+id/name_location"
+                    android:textSize="20dp"
+                    android:layout_marginRight="8dp"
+                    android:textColor="@color/header"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:weightSum="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/date"
+                    android:text="Date"
+                    android:textSize="13sp"
+                    android:layout_weight="0.5"
+                    android:textColor="@color/text"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_weight="0.5"
+                    android:id="@+id/time"
+                    android:textSize="13sp"
+                    android:textColor="@color/text"
+                    android:layout_height="wrap_content"
+                    android:text="Time"/>
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/players_needed"
+                android:text="Players Needed:"
+                android:textColor="@color/colorPrimaryDark"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimary">
+
+    </LinearLayout>
+
+</LinearLayout>

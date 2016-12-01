@@ -56,7 +56,7 @@ public class MainActivity extends FragmentActivity {
             options.add(g2);
             Bundle bundle = new Bundle();
             bundle.putSerializable("athlete", (Serializable) athlete);
-            HomeScreenFragment home = new HomeScreenFragment();
+            HomeFragment home = new HomeFragment();
             home.setArguments(bundle);
             home.setMain(this);
             getSupportFragmentManager().beginTransaction().add(R.id.fragment, home).commit();
@@ -79,7 +79,7 @@ public class MainActivity extends FragmentActivity {
     public void handleHomeClicked(View view) {
         Bundle bundle = new Bundle();
         bundle.putSerializable("athlete", (Serializable) athlete);
-        HomeScreenFragment home = new HomeScreenFragment();
+        HomeFragment home = new HomeFragment();
         home.setArguments(bundle);
         home.setMain(this);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment, home).commit();
