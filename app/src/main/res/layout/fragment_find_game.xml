@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:id = "@+id/selection"
         android:layout_marginBottom="60dp"
-        android:layout_marginTop="140dp">
+        android:layout_marginTop="@dimen/activity_vertical_margin">
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -66,6 +66,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="10dp"
                     android:progressDrawable="@color/colorPrimaryDark"/>
+
                 <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
@@ -85,6 +86,11 @@
                     android:paddingRight="10dp"
                     android:text="10" />
                 </RelativeLayout>
+                <FrameLayout
+                    android:id="@+id/container"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:background="@android:color/transparent" />
 
                 <Button
                     android:layout_width="300dp"

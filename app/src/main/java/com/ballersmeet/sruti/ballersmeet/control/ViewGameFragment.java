@@ -51,8 +51,8 @@ public class ViewGameFragment extends Fragment {
             }
         });
         location.setText(game.getLocation().toString());
-        capacity.setText("" + game.getNumplayers());
-        spots.setText("" + game.getSize());
+        capacity.setText("" + game.getCapacity());
+        spots.setText("" + game.getNumplayers());
         date.setText(game.getDay());
         time.setText(game.getTime());
         return rlLayout;

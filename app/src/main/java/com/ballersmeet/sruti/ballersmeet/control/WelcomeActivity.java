@@ -1,5 +1,6 @@
 package com.ballersmeet.sruti.ballersmeet.control;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +10,7 @@ import com.ballersmeet.sruti.ballersmeet.R;
 
 import java.io.Serializable;
 
-public class WelcomeActivity extends AppCompatActivity {
+public class WelcomeActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
