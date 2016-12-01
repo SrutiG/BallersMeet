@@ -1,6 +1,8 @@
 package com.ballersmeet.sruti.ballersmeet.control;
 
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -18,6 +20,7 @@ import android.widget.Toast;
 
 import com.ballersmeet.sruti.ballersmeet.R;
 import com.ballersmeet.sruti.ballersmeet.model.Athlete;
+import com.ballersmeet.sruti.ballersmeet.model.DBHandler;
 import com.ballersmeet.sruti.ballersmeet.model.Location;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -42,6 +45,9 @@ public class CreateGameFragment extends Fragment implements OnMapReadyCallback, 
     private Marker loc;
     private Date date;
     private int numPlayers;
+    private CalendarView cal;
+    private TimePicker timePicker;
+    private NumberPicker numberPicker;
     private static final LatLng CRC = new LatLng(33.775915, -84.403926);
     private static final LatLng PETERS = new LatLng(33.775269, -84.393539);
     private static final LatLng PIKE = new LatLng(33.776774, -84.395269);
@@ -51,18 +57,20 @@ public class CreateGameFragment extends Fragment implements OnMapReadyCallback, 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         FragmentActivity faActivity  = (FragmentActivity) super.getActivity();
         RelativeLayout rlLayout = (RelativeLayout) inflater.inflate(R.layout.fragment_create_game, container, false);
-        Button searchGames = (Button) rlLayout.findViewById(R.id.searchGames);
-        searchGames.setOnClickListener(new View.OnClickListener() {
+        cal = (CalendarView) rlLayout.findViewById(R.id.calendarView);
+        timePicker = (TimePicker) rlLayout.findViewById(R.id.timePicker);
+        numberPicker = (NumberPicker) rlLayout.findViewById(R.id.numberPicker);
+        /*searchGames.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Location gameloc = new Location(loc.getTitle());
+                Location gameloc = new Location(loc.getTitle(), loc.getPosition().toString());
                 Game newGame = new Game(6, date, gameloc);
                 Intent added = new Intent(getActivity(), GameAdded.class);
                 added.putExtra("game", (Serializable) newGame);
                 added.putExtra("athlete", (Serializable) athlete);
                 startActivity(added);
             }
-        });
+        });*/
         athlete = (Athlete) getArguments().getSerializable("athlete");
         //MapFragment mapFragment = new MapFragment();
         //FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
@@ -155,12 +163,23 @@ public class CreateGameFragment extends Fragment implements OnMapReadyCallback, 
         return false;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public void handleCreateGameClicked(View view) {
-        Location gameloc = new Location(loc.getTitle());
-        Game newGame = new Game(6, date, gameloc);
-        Intent added = new Intent(super.getActivity(), GameAdded.class);
+        Location gameloc = new Location(loc.getTitle(), loc.getPosition().toString());
+        long selectedDate = cal.getDate();
+        int hour = timePicker.getHour();
+        int minute = timePicker.getMinute();
+        int capacity = numberPicker.getValue();
+        Date date = new Date(selectedDate);
+        date.setHours(hour);
+        date.setMinutes(minute);
+        Game newGame = new Game(capacity, date, gameloc);
+        newGame.addPlayer(athlete);
+        DBHandler dbhandler = new DBHandler(getContext());
+        dbhandler.addGame(newGame);
+        /*Intent added = new Intent(super.getActivity(), GameAdded.class);
         added.putExtra("game", (Serializable) newGame);
         added.putExtra("athlete", (Serializable) athlete);
-        startActivity(added);
+        startActivity(added);*/
     }
 }

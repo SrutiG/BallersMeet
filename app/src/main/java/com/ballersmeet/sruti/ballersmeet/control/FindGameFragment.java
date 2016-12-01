@@ -126,7 +126,7 @@ public class FindGameFragment extends Fragment implements OnMapReadyCallback, Go
     }
 
     public void handleCreateGameClicked(View view) {
-        Location gameloc = new Location(loc.getTitle());
+        Location gameloc = new Location(loc.getTitle(), loc.getPosition().toString());
         Game newGame = new Game(6, date, gameloc);
         Intent added = new Intent(super.getActivity(), GameAdded.class);
         added.putExtra("game", (Serializable) newGame);

@@ -11,21 +11,19 @@ public class Location implements Serializable {
     private int zip;
     private String city;
     private String state;
-    private String latitude;
-    private String longitude;
+    private String latLong;
 
-    public Location(String name) {
-        this(name, null, 0, null, null, null, null);
+    public Location(String name, String latLong) {
+        this(name, null, 0, null, null, latLong);
     }
 
-    public Location(String name, String address, int zip, String city, String state, String latitude, String longitude) {
+    public Location(String name, String address, int zip, String city, String state, String latLong) {
         this.name = name;
         this.address = address;
         this.zip = zip;
         this.city = city;
         this.state = state;
-        this.latitude = latitude;
-        this.longitude = longitude;
+        this.latLong = latLong;
     }
 
     public String getName() {
@@ -48,13 +46,9 @@ public class Location implements Serializable {
         return zip;
     }
 
-    public String getLatitude() {
-        return latitude;
+    public String getLatLong() {
+        return latLong;
     }
-
-    public String getLongitude() {
-        return longitude;
-    }
-
+    
     public String toString() { return name; }
 }

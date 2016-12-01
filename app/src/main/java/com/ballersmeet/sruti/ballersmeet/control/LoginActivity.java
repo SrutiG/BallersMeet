@@ -71,9 +71,9 @@ public class LoginActivity extends Activity {
                     Date d_3 = sdf.parse("2016-09-27 17:15");
                     Date d_4 = sdf.parse("2016-09-26 13:00");
                     Date d_5 = sdf.parse("2016-09-26 16:00");
-                    Location location_1 = new Location("CRC", "750 Ferst Dr NW", 30318, "Atlanta", "GA", "33", "-84");
-                    Location location_2 = new Location("North Ave Apts", "120 North Ave NW", 30313, "Atlanta", "GA", "33", "-84.5");
-                    Location location_3 = new Location("Klaus", "266 Ferst Dr NW", 30332, "Atlanta", "GA", "33", "-84.4");
+                    Location location_1 = new Location("CRC", "750 Ferst Dr NW", 30318, "Atlanta", "GA", "33, -84");
+                    Location location_2 = new Location("North Ave Apts", "120 North Ave NW", 30313, "Atlanta", "GA", "33, -84.5");
+                    Location location_3 = new Location("Klaus", "266 Ferst Dr NW", 30332, "Atlanta", "GA", "33, -84.4");
                     games.add(new Game(4, d_1, location_1));
                     games.add(new Game(8, d_2, location_3));
                     games.add(new Game(6, d_3, location_2));

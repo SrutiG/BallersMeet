@@ -49,7 +49,7 @@ public class MainActivity extends FragmentActivity {
         try {
             Date d_6 = sdf.parse("2016-09-26 15:00");
             Date d_7 = sdf.parse("2016-09-26 16:00");
-            Location location_4 = new Location("CRC", "750 Ferst Dr NW", 30318, "Atlanta", "GA", "33.5", "-84");
+            Location location_4 = new Location("CRC", "750 Ferst Dr NW", 30318, "Atlanta", "GA", "33.5, -84");
             Game g1 = new Game(6, d_6, location_4);
             Game g2 = new Game(10, d_7, location_4);
             options.add(g1);

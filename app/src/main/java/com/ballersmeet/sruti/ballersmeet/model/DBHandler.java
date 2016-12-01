@@ -42,8 +42,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String KEY_CITY = "city";
     private static final String KEY_STATE = "state";
     private static final String KEY_ZIP = "zip";
-    private static final String KEY_LAT = "lat";
-    private static final String KEY_LONG = "long";
+    private static final String KEY_LATLONG = "latLong";
 
     private static final String TABLE_PARTICIPATION = "participation";
     private static final String KEY_ATHLETE = "username";
@@ -61,8 +60,8 @@ public class DBHandler extends SQLiteOpenHelper {
                 + KEY_CAPACITY + " TEXT, " + KEY_NUM_PLAYERS + " TEXT, FOREIGN KEY(" + KEY_LOCATION +
                 ") REFERENCES " + TABLE_LOCATIONS + "(" + KEY_NAME + "))";
         String CREATE_LOCATIONS_TABLE = "CREATE TABLE " + TABLE_LOCATIONS + "(" + KEY_NAME + " TEXT, " + KEY_ADDRESS + " TEXT, " +
-                KEY_STATE + " TEXT, " + KEY_CITY + " TEXT, " + KEY_ZIP + " TEXT, " + KEY_LAT + " TEXT, "
-                + KEY_LONG + " TEXT, PRIMARY KEY(" + KEY_NAME + "))";
+                KEY_STATE + " TEXT, " + KEY_CITY + " TEXT, " + KEY_ZIP + " TEXT, " + KEY_LATLONG
+                + " TEXT, PRIMARY KEY(" + KEY_NAME + "))";
         String CREATE_PARTICIPATION_TABLE = "CREATE TABLE " + TABLE_PARTICIPATION + "(" + KEY_ATHLETE + " TEXT, " +
                 KEY_GAME + " TEXT, PRIMARY KEY(" + KEY_ATHLETE + ", " + KEY_GAME + ") FOREIGN KEY(" + KEY_GAME +
                 ") REFERENCES " + TABLE_GAMES + "(" + KEY_GAME + "), FOREIGN KEY(" + KEY_ATHLETE +
@@ -112,8 +111,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_CITY, location.getCity());
         values.put(KEY_STATE, location.getState());
         values.put(KEY_ZIP, location.getZip());
-        values.put(KEY_LAT, location.getLatitude());
-        values.put(KEY_LONG, location.getLongitude());
+        values.put(KEY_LATLONG, location.getLatLong());
         db.insert(TABLE_LOCATIONS, null, values);
         db.close();
     }
@@ -167,12 +165,12 @@ public class DBHandler extends SQLiteOpenHelper {
     public Location getLocation(String name) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_LOCATIONS, new String[] { KEY_NAME,
-                        KEY_ADDRESS, KEY_STATE, KEY_CITY, KEY_ZIP, KEY_LAT, KEY_LONG }, KEY_NAME + "=?",
+                        KEY_ADDRESS, KEY_STATE, KEY_CITY, KEY_ZIP, KEY_LATLONG }, KEY_NAME + "=?",
                 new String[] { String.valueOf(name) }, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
         Location location = new Location(cursor.getString(0),
-                cursor.getString(1), Integer.parseInt(cursor.getString(4)), cursor.getString(3), cursor.getString(2), cursor.getString(5), cursor.getString(6));
+                cursor.getString(1), Integer.parseInt(cursor.getString(4)), cursor.getString(3), cursor.getString(2), cursor.getString(5));
         return location;
     }
 }
